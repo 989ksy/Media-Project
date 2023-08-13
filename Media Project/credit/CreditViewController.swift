@@ -28,9 +28,9 @@ class CreditViewController: UIViewController {
     
     var movieName = ""
     var overView = ""
-    var movieThumnail = ""
-    var movieBackThumnail = ""
-    
+    var movieThumnail : UIImage?
+    var movieBackThumnail: UIImage?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,7 +52,7 @@ class CreditViewController: UIViewController {
         overviewLabel.text = "OverView"
         castingLabel.text = "Cast"
         
-        movieTitle.font = .boldSystemFont(ofSize: 20)
+        movieTitle.font = .boldSystemFont(ofSize: 18)
         overviewLabel.font = .boldSystemFont(ofSize: 15)
         summaryLabel.font = .systemFont(ofSize: 13)
         castingLabel.font = .boldSystemFont(ofSize: 15)
@@ -76,7 +76,8 @@ class CreditViewController: UIViewController {
         
         movieTitle.text = "\(movieName)"
         summaryLabel.text = "\(overView)"
-        
+        moviePoster.image = movieThumnail
+        headerImage.image = movieBackThumnail
     }
 
 

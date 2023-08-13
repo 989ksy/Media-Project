@@ -103,10 +103,6 @@ class TrendingViewController: UIViewController {
         }
     }
     
-    
-
-    
-
 
 }
 
@@ -139,22 +135,35 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         guard let creditVC = self.storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as? CreditViewController else { return }
         self.navigationController?.pushViewController(creditVC, animated: true)
         
-//        let headUrl = "https://image.tmdb.org/t/p/w500/"
-//        let url = URL(string: headUrl + movieList[indexPath.row].image
-        
         creditVC.movieName = movieList[indexPath.row].title
         creditVC.overView = movieList[indexPath.row].overview
-        creditVC.movieThumnail = movieList[indexPath.row].image
         
-//        let headUrl = "https://image.tmdb.org/t/p/w500/"
-//        if let url = URL(string: headUrl + movieList[indexPath.row].image) {
-//            creditVC.movieThumnail?.kf.setImage(with: url)
-//        }
-//        if let url = URL(string: headUrl + movieList[indexPath.row].backimage){
-//            creditVC.movieBackThumnail?.kf.setImage(with: url)
-//        }
+        //        DispatchQueue.global().async {
+        //            if let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + self.movieList[indexPath.row].image),
+        //               let posterData = try? Data(contentsOf: posterUrl),
+        //               let poster = UIImage(data: posterData) {
+        //
+        //                DispatchQueue.main.async {
+        //                    creditVC.movieThumnail = poster
+        //                }
+        //            }
+        //        }
         
-        print ("눌리는 중?")
+        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].image),
+              let posterData = try? Data(contentsOf: posterUrl),
+              let poster = UIImage(data: posterData) else {
+            return
+        }
+        
+        creditVC.movieThumnail = poster
+        
+        guard let headerUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].backimage),
+              let headerData = try? Data(contentsOf: headerUrl),
+              let header = UIImage(data: headerData) else {
+            return
+        }
+        
+        creditVC.movieBackThumnail = header
         
         tableView.reloadData()
         
