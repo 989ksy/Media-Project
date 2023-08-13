@@ -169,20 +169,21 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let selectMovie = movieList[indexPath.row]
         
+        creditVC.selectedMovie = movieList[indexPath.row]
         creditVC.movieName = movieList[indexPath.row].title
         creditVC.overView = movieList[indexPath.row].overview
         
-//                DispatchQueue.global().async {
-//                    if let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + self.movieList[indexPath.row].image),
-//                       let posterData = try? Data(contentsOf: posterUrl),
-//                       let poster = UIImage(data: posterData) {
-//
-//                        DispatchQueue.main.async {
-//                            creditVC.movieThumnail = poster
-//                        }
-//                    }
-//                }
-
+        //                DispatchQueue.global().async {
+        //                    if let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + self.movieList[indexPath.row].image),
+        //                       let posterData = try? Data(contentsOf: posterUrl),
+        //                       let poster = UIImage(data: posterData) {
+        //
+        //                        DispatchQueue.main.async {
+        //                            creditVC.movieThumnail = poster
+        //                        }
+        //                    }
+        //                }
+        
         guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].image),
               let posterData = try? Data(contentsOf: posterUrl),
               let poster = UIImage(data: posterData) else {

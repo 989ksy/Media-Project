@@ -17,14 +17,24 @@ class CreditTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        imageBackView.layer.cornerRadius = 10
+        
+        configureCell ()
         
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    
+    func configureCell () {
+        
+        //이미지 설정
+        
+        imageBackView.backgroundColor = .clear
+        imageBackView.layer.cornerRadius = 20
+        posterImage.layer.cornerRadius = 18
+        
+        //라벨 설정
+        
+        actorNameLabel.font = .boldSystemFont(ofSize: 17)
+        roleNameLabel.font = .systemFont(ofSize: 13)
+        roleNameLabel.textColor = .gray
         
     }
     

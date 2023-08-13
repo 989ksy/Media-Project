@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Kingfisher
 
 struct Cast {
     var name : String
@@ -91,14 +92,16 @@ class CreditViewController: UIViewController {
     
     func getData() {
         
+        guard let selectedMovie = selectedMovie else {
+            return
+        }
+        
         movieTitle.text = "\(movieName)"
         summaryLabel.text = "\(overView)"
         moviePoster.image = movieThumnail
         headerImage.image = movieBackThumnail
         
-        if let movieID = selectedMovie?.movieID {
-             callRequest(id: movieID)
-         }
+        callRequest(id: selectedMovie.movieID)
     }
     
     func callRequest(id : Int) {
@@ -146,14 +149,20 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
         let cast = castList[indexPath.row]
         cell.actorNameLabel.text = cast.name
         cell.roleNameLabel.text = cast.charactor
-        
-        
+        if let profileURL = URL(string: "https://image.tmdb.org/t/p/w500/\(cast.profile)") {
+            cell.posterImage.kf.setImage(with: profileURL)
+        }
+
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 170
     }
     
     
