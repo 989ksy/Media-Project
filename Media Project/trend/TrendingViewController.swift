@@ -139,8 +139,12 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         guard let creditVC = self.storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as? CreditViewController else { return }
         self.navigationController?.pushViewController(creditVC, animated: true)
         
+//        let headUrl = "https://image.tmdb.org/t/p/w500/"
+//        let url = URL(string: headUrl + movieList[indexPath.row].image
+        
         creditVC.movieName = movieList[indexPath.row].title
         creditVC.overView = movieList[indexPath.row].overview
+        creditVC.movieThumnail = movieList[indexPath.row].image
         
 //        let headUrl = "https://image.tmdb.org/t/p/w500/"
 //        if let url = URL(string: headUrl + movieList[indexPath.row].image) {
