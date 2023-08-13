@@ -54,13 +54,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="230"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7d-Kz-En9">
-                                        <rect key="frame" x="30.000000000000004" y="30" width="41.333333333333343" height="21"/>
+                                        <rect key="frame" x="30" y="30" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-lN-3sx">
-                                        <rect key="frame" x="30" y="71" width="124" height="149"/>
+                                        <rect key="frame" x="30" y="91" width="124" height="129"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="124" id="a65-cX-rnA"/>
@@ -72,10 +72,10 @@
                                     <constraint firstItem="Y7o-Vo-9FM" firstAttribute="leading" secondItem="QJE-ep-JOA" secondAttribute="leading" id="J0b-Rd-cv2"/>
                                     <constraint firstItem="FeV-lN-3sx" firstAttribute="leading" secondItem="QJE-ep-JOA" secondAttribute="leading" constant="30" id="Lik-sC-c0f"/>
                                     <constraint firstItem="Y7o-Vo-9FM" firstAttribute="top" secondItem="QJE-ep-JOA" secondAttribute="top" id="cQy-wJ-PCN"/>
-                                    <constraint firstItem="FeV-lN-3sx" firstAttribute="top" secondItem="m7d-Kz-En9" secondAttribute="bottom" constant="20" id="fWL-x9-TRm"/>
+                                    <constraint firstItem="FeV-lN-3sx" firstAttribute="top" secondItem="m7d-Kz-En9" secondAttribute="bottom" constant="40" id="fWL-x9-TRm"/>
                                     <constraint firstAttribute="bottom" secondItem="FeV-lN-3sx" secondAttribute="bottom" constant="10" id="hRn-f6-eMA"/>
                                     <constraint firstAttribute="height" constant="230" id="hd5-lH-aAH"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="m7d-Kz-En9" secondAttribute="trailing" constant="20" symbolic="YES" id="r97-Vv-QIB"/>
+                                    <constraint firstAttribute="trailing" secondItem="m7d-Kz-En9" secondAttribute="trailing" constant="20" symbolic="YES" id="r97-Vv-QIB"/>
                                     <constraint firstItem="m7d-Kz-En9" firstAttribute="leading" secondItem="QJE-ep-JOA" secondAttribute="leading" constant="30" id="tM5-zh-Afn"/>
                                     <constraint firstAttribute="bottom" secondItem="Y7o-Vo-9FM" secondAttribute="bottom" id="tk8-vR-rDP"/>
                                     <constraint firstItem="m7d-Kz-En9" firstAttribute="top" secondItem="QJE-ep-JOA" secondAttribute="top" constant="30" id="ulO-n8-RbZ"/>
