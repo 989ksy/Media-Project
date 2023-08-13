@@ -7,23 +7,78 @@
 
 import UIKit
 
+
 class CreditViewController: UIViewController {
 
+    @IBOutlet var headerBack: UIView!
+    @IBOutlet var headerImage: UIImageView!
+    
+    @IBOutlet var movieTitle: UILabel!
+    @IBOutlet var moviePoster: UIImageView!
+    
+    @IBOutlet var overviewLabel: UILabel!
+    @IBOutlet var summaryLabel: UILabel!
+    
+    @IBOutlet var seperatorLine1: UIView! //구분선
+    @IBOutlet var seperatorLine2: UIView!
+    
+    @IBOutlet var castingLabel: UILabel!
+    
+    @IBOutlet var castingTableView: UITableView!
+    
+    var movieName = ""
+    var overView = ""
+    var movieThumnail = ""
+    var movieBackThumnail = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "출연/제작"
+        
+        let nib = UINib(nibName: "CreditTableViewCell", bundle: nil)
+        castingTableView.register(nib, forCellReuseIdentifier: "CreditTableViewCell")
+        
+        configureCell()
+        getData()
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureCell () {
+        
+        //라벨
+        
+        overviewLabel.text = "OverView"
+        castingLabel.text = "Cast"
+        
+        movieTitle.font = .boldSystemFont(ofSize: 20)
+        overviewLabel.font = .boldSystemFont(ofSize: 15)
+        summaryLabel.font = .systemFont(ofSize: 13)
+        castingLabel.font = .boldSystemFont(ofSize: 15)
+        
+        movieTitle.textColor = .white
+        overviewLabel.textColor = .systemGray2
+        summaryLabel.textColor = .black
+        castingLabel.textColor = .systemGray2
+        
+        summaryLabel.numberOfLines = 0
+        
+        //구분선
+        
+        seperatorLine1.backgroundColor = .systemGray2
+        seperatorLine2.backgroundColor = .systemGray2
+        
+        
     }
-    */
+    
+    func getData() {
+        
+        movieTitle.text = "\(movieName)"
+        summaryLabel.text = "\(overView)"
+        
+    }
+
+
 
 }

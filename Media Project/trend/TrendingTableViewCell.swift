@@ -50,7 +50,7 @@ class TrendingTableViewCell: UITableViewCell {
         castingLabel.font = .systemFont(ofSize: 14)
         
         moreLabel.text = "자세히 보기"
-        moreLabel.font = .systemFont(ofSize: 13)
+        moreLabel.font = .boldSystemFont(ofSize: 13)
         
         //버튼 설정
         

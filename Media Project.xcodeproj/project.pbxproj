@@ -21,6 +21,8 @@
 		0F81F5F42A879A5200D7CC49 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0F81F5F32A879A5200D7CC49 /* .gitignore */; };
 		0F81F5F72A879A7200D7CC49 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F5F62A879A7200D7CC49 /* APIKey.swift */; };
 		0F81F5FA2A87AF9700D7CC49 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0F81F5F92A87AF9700D7CC49 /* Kingfisher */; };
+		0F81F6012A87C9F500D7CC49 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F5FF2A87C9F500D7CC49 /* CreditTableViewCell.swift */; };
+		0F81F6022A87C9F500D7CC49 /* CreditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F81F6002A87C9F500D7CC49 /* CreditTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		0F81F5F12A87990F00D7CC49 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		0F81F5F32A879A5200D7CC49 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = "Media Project/Key/.gitignore"; sourceTree = SOURCE_ROOT; };
 		0F81F5F62A879A7200D7CC49 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		0F81F5FF2A87C9F500D7CC49 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
+		0F81F6002A87C9F500D7CC49 /* CreditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				0F81F5F12A87990F00D7CC49 /* CreditViewController.swift */,
+				0F81F5FF2A87C9F500D7CC49 /* CreditTableViewCell.swift */,
+				0F81F6002A87C9F500D7CC49 /* CreditTableViewCell.xib */,
 			);
 			path = credit;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 				0F81F5EB2A87853C00D7CC49 /* TrendingTableViewCell.xib in Resources */,
 				0F81F5D62A869C3700D7CC49 /* LaunchScreen.storyboard in Resources */,
 				0F81F5D32A869C3700D7CC49 /* Assets.xcassets in Resources */,
+				0F81F6022A87C9F500D7CC49 /* CreditTableViewCell.xib in Resources */,
 				0F81F5D12A869C3600D7CC49 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +207,7 @@
 				0F81F5F22A87990F00D7CC49 /* CreditViewController.swift in Sources */,
 				0F81F5CC2A869C3600D7CC49 /* SceneDelegate.swift in Sources */,
 				0F81F5F72A879A7200D7CC49 /* APIKey.swift in Sources */,
+				0F81F6012A87C9F500D7CC49 /* CreditTableViewCell.swift in Sources */,
 				0F81F5ED2A87891400D7CC49 /* TrendingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
