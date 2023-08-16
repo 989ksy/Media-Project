@@ -33,7 +33,12 @@ struct Genre {
 class TrendingViewController: UIViewController {
     
     var movieList : [Movie] = []
-
+    var cast : Cast?
+    
+    var genreDictionary : [Int : String] = [
+        28 : "Action", 12 : "Abenteuer", 16 : "Animation", 35 : "Komödie", 80 : "Krimi", 99 : "Dokumentarfilm", 18 : "Drama", 10751 : "Familie", 14 : "Fantasy", 36 : "Historie",27 : "Horror", 10402 : "Musik", 9648 : "Mystery", 10749 : "Liebesfilm", 878 : "Science Fiction", 10770 : "TV-Film", 53 : "Thriller", 10752 : "Kriegsfilm", 37 : "Western"
+    ]
+    
     @IBOutlet var trendingTableView: UITableView!
     
     override func viewDidLoad() {
@@ -77,28 +82,6 @@ class TrendingViewController: UIViewController {
             "accept" : "application/json"
         ]
         
-        //장르 정보
-        
-        AF.request(genreUrl, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for genre in json["genres"].arrayValue {
-                    let genreID = genre["id"].intValue
-                    let genreName = genre["name"].stringValue
-                    
-                    let genreData = Genre(id: genreID, name: genreName)
-
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        
         //영화 정보
         
         AF.request(movieUrl, method: .get, headers: header).validate().responseJSON { response in
@@ -121,6 +104,28 @@ class TrendingViewController: UIViewController {
                     
                     let data = Movie(date: date, image: image, rate: rate, title: title, type: type, overview: overview, backimage: backimage, movieID: movieID, genreID: genreID )
                     self.movieList.append(data)
+                    
+                    
+                    //장르 정보
+                    
+//                    AF.request(genreUrl, method: .get).validate().responseJSON { response in
+//                        switch response.result {
+//                        case .success(let value):
+//                            let json = JSON(value)
+//                            print("JSON: \(json)")
+//
+//                            for genre in json["genres"].arrayValue {
+//                                let genreID = genre["id"].intValue
+//                                let genreName = genre["name"].stringValue
+//
+//                                let genreData = Genre(id: genreID, name: genreName)
+//
+//                            }
+//
+//                        case .failure(let error):
+//                            print(error)
+//                        }
+//                    }
                     
                 }
                 
@@ -147,17 +152,29 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTableViewCell") as! TrendingTableViewCell
         
+        let movie = movieList[indexPath.row]
+        
         cell.titleLabel.text = movieList[indexPath.row].title
         cell.dateLabel.text = movieList[indexPath.row].date
         cell.rateNumberLabel.text = "\(movieList[indexPath.row].rate)"
         cell.trendingLabel.text = movieList[indexPath.row].type
-
-
-
+        cell.castingLabel.text = " "
+//
+//        if let genreName = genreDictionary[movie.genreID] {
+//            cell.trendingLabel.text = genreName
+//        } else {
+//            cell.trendingLabel.text = ""
+//        }
+            
+    
         let headUrl = "https://image.tmdb.org/t/p/w500/"
         if let url = URL(string: headUrl + movieList[indexPath.row].image) {
             cell.posterImage.kf.setImage(with: url)
         }
+        
+
+        
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -170,8 +187,11 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         let selectMovie = movieList[indexPath.row]
         
         creditVC.selectedMovie = movieList[indexPath.row]
+        
         creditVC.movieName = movieList[indexPath.row].title
         creditVC.overView = movieList[indexPath.row].overview
+        
+        
         
         //                DispatchQueue.global().async {
         //                    if let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + self.movieList[indexPath.row].image),
@@ -198,7 +218,7 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         creditVC.movieBackThumnail = header
         
-        tableView.reloadData()
+
         
     }
     

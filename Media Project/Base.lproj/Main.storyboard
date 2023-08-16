@@ -60,7 +60,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-lN-3sx">
-                                        <rect key="frame" x="30" y="91" width="124" height="129"/>
+                                        <rect key="frame" x="30" y="66" width="124" height="154"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="124" id="a65-cX-rnA"/>
@@ -72,8 +72,9 @@
                                     <constraint firstItem="Y7o-Vo-9FM" firstAttribute="leading" secondItem="QJE-ep-JOA" secondAttribute="leading" id="J0b-Rd-cv2"/>
                                     <constraint firstItem="FeV-lN-3sx" firstAttribute="leading" secondItem="QJE-ep-JOA" secondAttribute="leading" constant="30" id="Lik-sC-c0f"/>
                                     <constraint firstItem="Y7o-Vo-9FM" firstAttribute="top" secondItem="QJE-ep-JOA" secondAttribute="top" id="cQy-wJ-PCN"/>
-                                    <constraint firstItem="FeV-lN-3sx" firstAttribute="top" secondItem="m7d-Kz-En9" secondAttribute="bottom" constant="40" id="fWL-x9-TRm"/>
+                                    <constraint firstItem="FeV-lN-3sx" firstAttribute="top" secondItem="m7d-Kz-En9" secondAttribute="bottom" constant="15" id="fWL-x9-TRm"/>
                                     <constraint firstAttribute="bottom" secondItem="FeV-lN-3sx" secondAttribute="bottom" constant="10" id="hRn-f6-eMA"/>
+                                    <constraint firstItem="m7d-Kz-En9" firstAttribute="height" secondItem="Y7o-Vo-9FM" secondAttribute="height" multiplier="0.0913043" id="hcz-2K-QFd"/>
                                     <constraint firstAttribute="height" constant="230" id="hd5-lH-aAH"/>
                                     <constraint firstAttribute="trailing" secondItem="m7d-Kz-En9" secondAttribute="trailing" constant="20" symbolic="YES" id="r97-Vv-QIB"/>
                                     <constraint firstItem="m7d-Kz-En9" firstAttribute="leading" secondItem="QJE-ep-JOA" secondAttribute="leading" constant="30" id="tM5-zh-Afn"/>

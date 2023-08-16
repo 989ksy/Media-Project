@@ -63,11 +63,11 @@ class TrendingTableViewCell: UITableViewCell {
         clipButton.setTitle("", for: .normal)
         clipButton.tintColor = .black
         
-        imageBackview.layer.cornerRadius = 20 //이미지의 흰 짜투리를 잘라줌
+        imageBackview.layer.cornerRadius = 20
         posterImage.layer.shadowColor = UIColor.black.cgColor
-        imageBackview.layer.shadowOffset = .zero //그림자 지는 방향
-        imageBackview.layer.shadowRadius = 5 //그림자 번짐의 정도
-        imageBackview.layer.shadowOpacity = 0.2 //불투명도
+        imageBackview.layer.shadowOffset = .zero 
+        imageBackview.layer.shadowRadius = 5
+        imageBackview.layer.shadowOpacity = 0.2
         imageBackview.clipsToBounds = false
         
         

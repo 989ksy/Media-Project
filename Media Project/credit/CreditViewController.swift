@@ -30,6 +30,9 @@ class CreditViewController: UIViewController {
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
     
+ 
+    @IBOutlet var testLabel: UILabel!
+    
     @IBOutlet var seperatorLine1: UIView! //구분선
     @IBOutlet var seperatorLine2: UIView!
     
@@ -66,7 +69,7 @@ class CreditViewController: UIViewController {
         overviewLabel.text = "OverView"
         castingLabel.text = "Cast"
         
-        movieTitle.font = .boldSystemFont(ofSize: 17)
+        movieTitle.font = .boldSystemFont(ofSize: 20)
         overviewLabel.font = .boldSystemFont(ofSize: 15)
         summaryLabel.font = .systemFont(ofSize: 13)
         castingLabel.font = .boldSystemFont(ofSize: 15)
@@ -146,6 +149,7 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CreditTableViewCell") as! CreditTableViewCell
         
+        
         let cast = castList[indexPath.row]
         cell.actorNameLabel.text = cast.name
         cell.roleNameLabel.text = cast.charactor
@@ -158,6 +162,7 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         return tableView.reloadData()
     }
     
