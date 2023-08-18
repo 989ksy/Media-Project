@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 // MARK: - Trend
 struct Trend: Codable {
     let totalPages, totalResults: Int

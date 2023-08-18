@@ -10,17 +10,11 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
-struct Cast {
-    var name : String
-    var profile : String
-    var charactor : String
-}
-
 class CreditViewController: UIViewController {
     
-//    var selectedMovie : Movie?
+    var creditList : Cast = Cast(id: 0, cast: [], crew: [])
+    
     var selectedTrend : Result?
-    var castList : [Cast] = []
 
     @IBOutlet var headerBack: UIView!
     @IBOutlet var headerImage: UIImageView!
@@ -38,18 +32,14 @@ class CreditViewController: UIViewController {
     
     @IBOutlet var castingTableView: UITableView! //테이블뷰
     
-    var movieName = ""
-    var overView = ""
-    var movieThumnail : UIImage?
-    var movieBackThumnail: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "출연/제작"
         
-        let nib = UINib(nibName: "CreditTableViewCell", bundle: nil)
-        castingTableView.register(nib, forCellReuseIdentifier: "CreditTableViewCell")
+        let nib = UINib(nibName: CreditTableViewCell.identifier, bundle: nil)
+        castingTableView.register(nib, forCellReuseIdentifier: CreditTableViewCell.identifier)
         
         castingTableView.dataSource = self
         castingTableView.delegate = self
@@ -96,66 +86,49 @@ class CreditViewController: UIViewController {
         guard let selectedTrend = selectedTrend else {
             return
         }
-        
-//        movieTitle.text = "\(movieName)"
-//        summaryLabel.text = "\(overView)"
-//        moviePoster.image = movieThumnail
-//        headerImage.image = movieBackThumnail
-        
+
         movieTitle.text = selectedTrend.title
         summaryLabel.text = selectedTrend.overview
         
+        if let posterURL = URL(string: "https://image.tmdb.org/t/p/w500/" + selectedTrend.posterPath) {
+            moviePoster.kf.setImage(with: posterURL)
+        }
+        
+        if let headerURL = URL(string: "https://image.tmdb.org/t/p/w500/" + selectedTrend.backdropPath) {
+            headerImage.kf.setImage(with: headerURL)
+        }
         
         callRequest(id: selectedTrend.id)
+        
     }
     
     func callRequest(id : Int) {
         
-        let url = "https://api.themoviedb.org/3/movie/\(id)/credits?api_key=\(APIKey.TmdbAPI)"
-        
-        AF.request(url, method: .get).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for role in json["cast"].arrayValue {
-                    
-                    let name = role["name"].stringValue
-                    let profile = role["profile_path"].stringValue
-                    let character = role["character"].stringValue
-                    
-                    let castData = Cast(name: name, profile: profile, charactor: character)
-                    self.castList.append(castData)
-                    
-                }
-                
-                self.castingTableView.reloadData()
-                
-                
-            case .failure(let error):
-                print(error)
-            }
+        CreditManager.shared.callRequest(id: id) { data in
+            print(data)
+            self.creditList = data
+            self.castingTableView.reloadData()
+            
+        } failure: {
+            print("error")
         }
-        
     }
 
 }
 
 extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return castList.count
+        return creditList.cast.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CreditTableViewCell") as! CreditTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CreditTableViewCell.identifier) as? CreditTableViewCell else { return UITableViewCell() }
         
-        
-        let cast = castList[indexPath.row]
-        cell.actorNameLabel.text = cast.name
-        cell.roleNameLabel.text = cast.charactor
-        if let profileURL = URL(string: "https://image.tmdb.org/t/p/w500/\(cast.profile)") {
+        let credit = creditList.cast[indexPath.row]//castList[indexPath.row]
+        cell.actorNameLabel.text = credit.name
+        cell.roleNameLabel.text = credit.character
+        if let profileURL = URL(string: "https://image.tmdb.org/t/p/w500/" + (credit.profilePath ?? "")) {
             cell.posterImage.kf.setImage(with: profileURL)
         }
 

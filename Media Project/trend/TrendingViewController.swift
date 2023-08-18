@@ -53,16 +53,7 @@ class TrendingViewController: UIViewController {
     }
     
     func callRequestMovie () {
-        
-        let movieUrl = "https://api.themoviedb.org/3/trending/movie/day?api_key=\(APIKey.TmdbAPI)"
-        let header: HTTPHeaders = [
-            "Authorization" : "Bearer \(APIKey.TmdbAPI)",
-            "accept" : "application/json"
-        ]
-        
-        //영화 정보
-        
-        //코더블
+ 
 
         TrendManager.shared.callRequestMovie { data in
             print(data)
@@ -73,44 +64,10 @@ class TrendingViewController: UIViewController {
             print("error")
         }
 
-        
-//        AF.request(movieUrl, method: .get, headers: header).validate().responseJSON { response in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-//                print("JSON: \(json)")
-//
-//                for item in json["results"].arrayValue {
-//
-//                    let date = item["release_date"].stringValue
-//                    let image = item["poster_path"].stringValue
-//                    let rate = item["vote_average"].doubleValue
-//                    let title = item["title"].stringValue
-//                    let type = item["media_type"].stringValue
-//                    let overview = item["overview"].stringValue
-//                    let backimage = item["backdrop_path"].stringValue
-//                    let movieID = item["id"].intValue
-//
-//                    let genreID = item["genre_ids"].arrayValue[0]
-//                    print("****Genre Id", item["genre_ids"].arrayValue[0])
-//
-//                    let data = Movie(date: date, image: image, rate: rate, title: title, type: type, overview: overview, backimage: backimage, movieID: movieID, genreID: genreID.rawValue as! Int )
-//                    self.movieList.append(data)
-//
-//
-//                }
-//
-//                print("나오나?")
-//
-//                self.trendingTableView.reloadData()
-//
-//            case .failure(let error):
-//                print(error)
-//            }
-        }
+    }
     
     
-    } //class
+} //class
 
 
 
@@ -123,24 +80,11 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendingTableViewCell.identifier) as?  TrendingTableViewCell else {return UITableViewCell() }
         
-//        let movie = movieList[indexPath.row]
-//        cell.titleLabel.text = movieList[indexPath.row].title
-//        cell.dateLabel.text = movieList[indexPath.row].date
-//        cell.rateNumberLabel.tex = "\(movieList[indexPath.row].rate)"
-//      cell.trendingLabel.text =  //movieList[indexPath.row].type
-        
-//        if let genreName = genreDictionary[movie.genreid] {
-//            cell.trendingLabel.text = genreName
-//        } else {
-//            cell.trendingLabel.text = ""
-//        }
-        
         let trend = trendList.results[indexPath.row]
         
         cell.titleLabel.text = trendList.results[indexPath.row].title
         cell.dateLabel.text = trendList.results[indexPath.row].releaseDate
         cell.rateNumberLabel.text = "\(trendList.results[indexPath.row].voteAverage)"
-
         
         cell.castingLabel.text = ""
         
@@ -154,9 +98,6 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell.trendingLabel.text = ""
         }
-        
-//        cell.castingLabel.text = castList[indexPath.row].name
-
         
         cell.selectionStyle = .none
         
@@ -173,26 +114,6 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         
         creditVC.selectedTrend = selectedTrend
         
-
-//        creditVC.movieName = trendList.results[indexPath.row].title   // movieList[indexPath.row].title
-//        creditVC.overView = trendList.results[indexPath.row].overview //movieList[indexPath.row].overview
-//
-        
-//        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].image),
-//              let posterData = try? Data(contentsOf: posterUrl),
-//              let poster = UIImage(data: posterData) else {
-//            return
-//        }
-//        creditVC.movieThumnail = poster
-//
-//        guard let headerUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].backimage),
-//              let headerData = try? Data(contentsOf: headerUrl),
-//              let header = UIImage(data: headerData) else {
-//            return
-//        }
-//        creditVC.movieBackThumnail = header
-        
-
         
     }
     
