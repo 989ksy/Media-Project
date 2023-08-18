@@ -18,7 +18,8 @@ struct Cast {
 
 class CreditViewController: UIViewController {
     
-    var selectedMovie : Movie?
+//    var selectedMovie : Movie?
+    var selectedTrend : Result?
     var castList : [Cast] = []
 
     @IBOutlet var headerBack: UIView!
@@ -29,9 +30,6 @@ class CreditViewController: UIViewController {
     
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var summaryLabel: UILabel!
-    
- 
-    @IBOutlet var testLabel: UILabel!
     
     @IBOutlet var seperatorLine1: UIView! //구분선
     @IBOutlet var seperatorLine2: UIView!
@@ -95,16 +93,20 @@ class CreditViewController: UIViewController {
     
     func getData() {
         
-        guard let selectedMovie = selectedMovie else {
+        guard let selectedTrend = selectedTrend else {
             return
         }
         
-        movieTitle.text = "\(movieName)"
-        summaryLabel.text = "\(overView)"
-        moviePoster.image = movieThumnail
-        headerImage.image = movieBackThumnail
+//        movieTitle.text = "\(movieName)"
+//        summaryLabel.text = "\(overView)"
+//        moviePoster.image = movieThumnail
+//        headerImage.image = movieBackThumnail
         
-        callRequest(id: selectedMovie.movieID)
+        movieTitle.text = selectedTrend.title
+        summaryLabel.text = selectedTrend.overview
+        
+        
+        callRequest(id: selectedTrend.id)
     }
     
     func callRequest(id : Int) {

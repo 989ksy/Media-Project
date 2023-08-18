@@ -11,31 +11,11 @@ import SwiftyJSON
 import Kingfisher
 
 
-struct Movie {
-    var date : String
-    var image : String
-    var rate : Double
-    var title : String
-    var type : String
-    var overview : String
-    var backimage : String
-    var movieID : Int
-    var genreID : Int
-    
-}
-
-struct Genre {
-    var id : Int
-    var name : String
-}
-
-
 class TrendingViewController: UIViewController {
     
-    var movieList : [Movie] = []
-    var cast : Cast?
+    var trendList: Trend = Trend(totalPages: 0, totalResults: 0, results: [], page: 0)
     
-    var genreDictionary : [Int : String] = [
+    var genreDictionary: [Int : String] = [
         28 : "Action", 12 : "Abenteuer", 16 : "Animation", 35 : "Komödie", 80 : "Krimi", 99 : "Dokumentarfilm", 18 : "Drama", 10751 : "Familie", 14 : "Fantasy", 36 : "Historie",27 : "Horror", 10402 : "Musik", 9648 : "Mystery", 10749 : "Liebesfilm", 878 : "Science Fiction", 10770 : "TV-Film", 53 : "Thriller", 10752 : "Kriegsfilm", 37 : "Western"
     ]
     
@@ -46,8 +26,8 @@ class TrendingViewController: UIViewController {
         
         title = ""
         
-        callRequest ()
-        
+        callRequestMovie ()
+
         trendingTableView.dataSource = self
         trendingTableView.delegate = self
 
@@ -72,11 +52,9 @@ class TrendingViewController: UIViewController {
         
     }
     
-    func callRequest () {
+    func callRequestMovie () {
         
         let movieUrl = "https://api.themoviedb.org/3/trending/movie/day?api_key=\(APIKey.TmdbAPI)"
-        let genreUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=\(APIKey.TmdbAPI)"
-        
         let header: HTTPHeaders = [
             "Authorization" : "Bearer \(APIKey.TmdbAPI)",
             "accept" : "application/json"
@@ -84,94 +62,100 @@ class TrendingViewController: UIViewController {
         
         //영화 정보
         
-        AF.request(movieUrl, method: .get, headers: header).validate().responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for item in json["results"].arrayValue {
-                    
-                    let date = item["release_date"].stringValue
-                    let image = item["poster_path"].stringValue
-                    let rate = item["vote_average"].doubleValue
-                    let title = item["title"].stringValue
-                    let type = item["media_type"].stringValue
-                    let overview = item["overview"].stringValue
-                    let backimage = item["backdrop_path"].stringValue
-                    let movieID = item["id"].intValue
-                    let genreID = item["genre_ids"].intValue
-                    
-                    let data = Movie(date: date, image: image, rate: rate, title: title, type: type, overview: overview, backimage: backimage, movieID: movieID, genreID: genreID )
-                    self.movieList.append(data)
-                    
-                    
-                    //장르 정보
-                    
-//                    AF.request(genreUrl, method: .get).validate().responseJSON { response in
-//                        switch response.result {
-//                        case .success(let value):
-//                            let json = JSON(value)
-//                            print("JSON: \(json)")
-//
-//                            for genre in json["genres"].arrayValue {
-//                                let genreID = genre["id"].intValue
-//                                let genreName = genre["name"].stringValue
-//
-//                                let genreData = Genre(id: genreID, name: genreName)
-//
-//                            }
-//
-//                        case .failure(let error):
-//                            print(error)
-//                        }
-//                    }
-                    
-                }
-                
-                print("나오나?")
-                
-                self.trendingTableView.reloadData()
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
+        //코더블
 
-}
+        TrendManager.shared.callRequestMovie { data in
+            print(data)
+            self.trendList = data
+            self.trendingTableView.reloadData()
+            
+        } failure: {
+            print("error")
+        }
+
+        
+//        AF.request(movieUrl, method: .get, headers: header).validate().responseJSON { response in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                print("JSON: \(json)")
+//
+//                for item in json["results"].arrayValue {
+//
+//                    let date = item["release_date"].stringValue
+//                    let image = item["poster_path"].stringValue
+//                    let rate = item["vote_average"].doubleValue
+//                    let title = item["title"].stringValue
+//                    let type = item["media_type"].stringValue
+//                    let overview = item["overview"].stringValue
+//                    let backimage = item["backdrop_path"].stringValue
+//                    let movieID = item["id"].intValue
+//
+//                    let genreID = item["genre_ids"].arrayValue[0]
+//                    print("****Genre Id", item["genre_ids"].arrayValue[0])
+//
+//                    let data = Movie(date: date, image: image, rate: rate, title: title, type: type, overview: overview, backimage: backimage, movieID: movieID, genreID: genreID.rawValue as! Int )
+//                    self.movieList.append(data)
+//
+//
+//                }
+//
+//                print("나오나?")
+//
+//                self.trendingTableView.reloadData()
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+        }
+    
+    
+    } //class
+
 
 
 extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
+        return trendList.results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TrendingTableViewCell") as! TrendingTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrendingTableViewCell.identifier) as?  TrendingTableViewCell else {return UITableViewCell() }
         
-        let movie = movieList[indexPath.row]
+//        let movie = movieList[indexPath.row]
+//        cell.titleLabel.text = movieList[indexPath.row].title
+//        cell.dateLabel.text = movieList[indexPath.row].date
+//        cell.rateNumberLabel.tex = "\(movieList[indexPath.row].rate)"
+//      cell.trendingLabel.text =  //movieList[indexPath.row].type
         
-        cell.titleLabel.text = movieList[indexPath.row].title
-        cell.dateLabel.text = movieList[indexPath.row].date
-        cell.rateNumberLabel.text = "\(movieList[indexPath.row].rate)"
-        cell.trendingLabel.text = movieList[indexPath.row].type
-        cell.castingLabel.text = " "
-//
-//        if let genreName = genreDictionary[movie.genreID] {
+//        if let genreName = genreDictionary[movie.genreid] {
 //            cell.trendingLabel.text = genreName
 //        } else {
 //            cell.trendingLabel.text = ""
 //        }
-            
-    
+        
+        let trend = trendList.results[indexPath.row]
+        
+        cell.titleLabel.text = trendList.results[indexPath.row].title
+        cell.dateLabel.text = trendList.results[indexPath.row].releaseDate
+        cell.rateNumberLabel.text = "\(trendList.results[indexPath.row].voteAverage)"
+
+        
+        cell.castingLabel.text = ""
+        
         let headUrl = "https://image.tmdb.org/t/p/w500/"
-        if let url = URL(string: headUrl + movieList[indexPath.row].image) {
+        if let url = URL(string: headUrl + trendList.results[indexPath.row].posterPath){
             cell.posterImage.kf.setImage(with: url)
         }
         
+        if let firstGenreID = trend.genreIDS.first, let genreName = genreDictionary[firstGenreID] {
+            cell.trendingLabel.text = genreName
+        } else {
+            cell.trendingLabel.text = ""
+        }
+        
+//        cell.castingLabel.text = castList[indexPath.row].name
 
         
         cell.selectionStyle = .none
@@ -184,39 +168,29 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         guard let creditVC = self.storyboard?.instantiateViewController(withIdentifier: "CreditViewController") as? CreditViewController else { return }
         self.navigationController?.pushViewController(creditVC, animated: true)
         
-        let selectMovie = movieList[indexPath.row]
         
-        creditVC.selectedMovie = movieList[indexPath.row]
+        let selectedTrend = trendList.results[indexPath.row]
         
-        creditVC.movieName = movieList[indexPath.row].title
-        creditVC.overView = movieList[indexPath.row].overview
+        creditVC.selectedTrend = selectedTrend
         
+
+//        creditVC.movieName = trendList.results[indexPath.row].title   // movieList[indexPath.row].title
+//        creditVC.overView = trendList.results[indexPath.row].overview //movieList[indexPath.row].overview
+//
         
-        
-        //                DispatchQueue.global().async {
-        //                    if let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + self.movieList[indexPath.row].image),
-        //                       let posterData = try? Data(contentsOf: posterUrl),
-        //                       let poster = UIImage(data: posterData) {
-        //
-        //                        DispatchQueue.main.async {
-        //                            creditVC.movieThumnail = poster
-        //                        }
-        //                    }
-        //                }
-        
-        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].image),
-              let posterData = try? Data(contentsOf: posterUrl),
-              let poster = UIImage(data: posterData) else {
-            return
-        }
-        creditVC.movieThumnail = poster
-        
-        guard let headerUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].backimage),
-              let headerData = try? Data(contentsOf: headerUrl),
-              let header = UIImage(data: headerData) else {
-            return
-        }
-        creditVC.movieBackThumnail = header
+//        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].image),
+//              let posterData = try? Data(contentsOf: posterUrl),
+//              let poster = UIImage(data: posterData) else {
+//            return
+//        }
+//        creditVC.movieThumnail = poster
+//
+//        guard let headerUrl = URL(string: "https://image.tmdb.org/t/p/w500/" + movieList[indexPath.row].backimage),
+//              let headerData = try? Data(contentsOf: headerUrl),
+//              let header = UIImage(data: headerData) else {
+//            return
+//        }
+//        creditVC.movieBackThumnail = header
         
 
         

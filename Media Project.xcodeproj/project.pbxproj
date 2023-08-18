@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F042B022A8E2AA90002871B /* TrendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F042B012A8E2AA90002871B /* TrendManager.swift */; };
 		0F4C019A2A8C9BA400363321 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C01992A8C9BA400363321 /* Endpoint.swift */; };
 		0F4C019C2A8C9BC300363321 /* URL + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C019B2A8C9BC300363321 /* URL + Extension.swift */; };
 		0F4C019F2A8CA02A00363321 /* TMDBAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C019E2A8CA02A00363321 /* TMDBAPIManager.swift */; };
+		0F4C01A12A8CF6DB00363321 /* SeasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C01A02A8CF6DB00363321 /* SeasonViewController.swift */; };
+		0F4C01A62A8CFABA00363321 /* SeasonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C01A42A8CFABA00363321 /* SeasonCollectionViewCell.swift */; };
+		0F4C01A72A8CFABA00363321 /* SeasonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F4C01A52A8CFABA00363321 /* SeasonCollectionViewCell.xib */; };
+		0F4C01AA2A8CFF5F00363321 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C01A82A8CFF5F00363321 /* HeaderCollectionReusableView.swift */; };
+		0F4C01AB2A8CFF5F00363321 /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F4C01A92A8CFF5F00363321 /* HeaderCollectionReusableView.xib */; };
 		0F81F5CA2A869C3600D7CC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F5C92A869C3600D7CC49 /* AppDelegate.swift */; };
 		0F81F5CC2A869C3600D7CC49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F5CB2A869C3600D7CC49 /* SceneDelegate.swift */; };
 		0F81F5D12A869C3600D7CC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F81F5CF2A869C3600D7CC49 /* Main.storyboard */; };
@@ -26,12 +32,20 @@
 		0F81F5FA2A87AF9700D7CC49 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0F81F5F92A87AF9700D7CC49 /* Kingfisher */; };
 		0F81F6012A87C9F500D7CC49 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F5FF2A87C9F500D7CC49 /* CreditTableViewCell.swift */; };
 		0F81F6022A87C9F500D7CC49 /* CreditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F81F6002A87C9F500D7CC49 /* CreditTableViewCell.xib */; };
+		0FC64D462A8E80A30087AF60 /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC64D452A8E80A30087AF60 /* Trend.swift */; };
+		0FC64D482A8E81BA0087AF60 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC64D472A8E81BA0087AF60 /* ReusableViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F042B012A8E2AA90002871B /* TrendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendManager.swift; sourceTree = "<group>"; };
 		0F4C01992A8C9BA400363321 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		0F4C019B2A8C9BC300363321 /* URL + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Extension.swift"; sourceTree = "<group>"; };
 		0F4C019E2A8CA02A00363321 /* TMDBAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIManager.swift; sourceTree = "<group>"; };
+		0F4C01A02A8CF6DB00363321 /* SeasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewController.swift; sourceTree = "<group>"; };
+		0F4C01A42A8CFABA00363321 /* SeasonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCollectionViewCell.swift; sourceTree = "<group>"; };
+		0F4C01A52A8CFABA00363321 /* SeasonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonCollectionViewCell.xib; sourceTree = "<group>"; };
+		0F4C01A82A8CFF5F00363321 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		0F4C01A92A8CFF5F00363321 /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		0F81F5C62A869C3600D7CC49 /* Media Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Media Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F81F5C92A869C3600D7CC49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F81F5CB2A869C3600D7CC49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +61,8 @@
 		0F81F5F62A879A7200D7CC49 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		0F81F5FF2A87C9F500D7CC49 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
 		0F81F6002A87C9F500D7CC49 /* CreditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditTableViewCell.xib; sourceTree = "<group>"; };
+		0FC64D452A8E80A30087AF60 /* Trend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
+		0FC64D472A8E81BA0087AF60 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +85,21 @@
 				0F4C019B2A8C9BC300363321 /* URL + Extension.swift */,
 				0F4C01992A8C9BA400363321 /* Endpoint.swift */,
 				0F4C019E2A8CA02A00363321 /* TMDBAPIManager.swift */,
+				0FC64D472A8E81BA0087AF60 /* ReusableViewProtocol.swift */,
 			);
 			path = manager;
+			sourceTree = "<group>";
+		};
+		0F4C01A22A8CF6DF00363321 /* season */ = {
+			isa = PBXGroup;
+			children = (
+				0F4C01A02A8CF6DB00363321 /* SeasonViewController.swift */,
+				0F4C01A82A8CFF5F00363321 /* HeaderCollectionReusableView.swift */,
+				0F4C01A92A8CFF5F00363321 /* HeaderCollectionReusableView.xib */,
+				0F4C01A42A8CFABA00363321 /* SeasonCollectionViewCell.swift */,
+				0F4C01A52A8CFABA00363321 /* SeasonCollectionViewCell.xib */,
+			);
+			path = season;
 			sourceTree = "<group>";
 		};
 		0F81F5BD2A869C3600D7CC49 = {
@@ -92,6 +121,7 @@
 		0F81F5C82A869C3600D7CC49 /* Media Project */ = {
 			isa = PBXGroup;
 			children = (
+				0F4C01A22A8CF6DF00363321 /* season */,
 				0F4C019D2A8C9DAC00363321 /* manager */,
 				0F81F5F02A8798EF00D7CC49 /* credit */,
 				0F81F5DF2A8764A600D7CC49 /* trend */,
@@ -112,6 +142,8 @@
 				0F81F5E82A87853C00D7CC49 /* TrendingTableViewCell.swift */,
 				0F81F5EC2A87891400D7CC49 /* TrendingViewController.swift */,
 				0F81F5E92A87853C00D7CC49 /* TrendingTableViewCell.xib */,
+				0F042B012A8E2AA90002871B /* TrendManager.swift */,
+				0FC64D452A8E80A30087AF60 /* Trend.swift */,
 			);
 			path = trend;
 			sourceTree = "<group>";
@@ -203,8 +235,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4C01AB2A8CFF5F00363321 /* HeaderCollectionReusableView.xib in Resources */,
 				0F81F5F42A879A5200D7CC49 /* .gitignore in Resources */,
 				0F81F5EB2A87853C00D7CC49 /* TrendingTableViewCell.xib in Resources */,
+				0F4C01A72A8CFABA00363321 /* SeasonCollectionViewCell.xib in Resources */,
 				0F81F5D62A869C3700D7CC49 /* LaunchScreen.storyboard in Resources */,
 				0F81F5D32A869C3700D7CC49 /* Assets.xcassets in Resources */,
 				0F81F6022A87C9F500D7CC49 /* CreditTableViewCell.xib in Resources */,
@@ -222,11 +256,17 @@
 				0F81F5EA2A87853C00D7CC49 /* TrendingTableViewCell.swift in Sources */,
 				0F81F5CA2A869C3600D7CC49 /* AppDelegate.swift in Sources */,
 				0F4C019C2A8C9BC300363321 /* URL + Extension.swift in Sources */,
+				0FC64D462A8E80A30087AF60 /* Trend.swift in Sources */,
+				0F042B022A8E2AA90002871B /* TrendManager.swift in Sources */,
+				0FC64D482A8E81BA0087AF60 /* ReusableViewProtocol.swift in Sources */,
 				0F4C019F2A8CA02A00363321 /* TMDBAPIManager.swift in Sources */,
 				0F4C019A2A8C9BA400363321 /* Endpoint.swift in Sources */,
+				0F4C01AA2A8CFF5F00363321 /* HeaderCollectionReusableView.swift in Sources */,
+				0F4C01A62A8CFABA00363321 /* SeasonCollectionViewCell.swift in Sources */,
 				0F81F5F22A87990F00D7CC49 /* CreditViewController.swift in Sources */,
 				0F81F5CC2A869C3600D7CC49 /* SceneDelegate.swift in Sources */,
 				0F81F5F72A879A7200D7CC49 /* APIKey.swift in Sources */,
+				0F4C01A12A8CF6DB00363321 /* SeasonViewController.swift in Sources */,
 				0F81F6012A87C9F500D7CC49 /* CreditTableViewCell.swift in Sources */,
 				0F81F5ED2A87891400D7CC49 /* TrendingViewController.swift in Sources */,
 			);
