@@ -196,6 +196,9 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="iBp-0j-FQI" eventType="valueChanged" id="pVj-8i-RKA"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdG-U7-UMT">
                                 <rect key="frame" x="0.0" y="170" width="393" height="648"/>
@@ -232,6 +235,7 @@
                     </view>
                     <connections>
                         <outlet property="segmentCollectionView" destination="sdG-U7-UMT" id="FNc-CA-mGr"/>
+                        <outlet property="segmentedControl" destination="NS5-Sv-Bgt" id="sbJ-hi-jNq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKT-s4-UnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
