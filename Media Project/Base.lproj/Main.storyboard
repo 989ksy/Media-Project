@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IKx-K1-Jzj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iBp-0j-FQI">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -182,28 +182,35 @@
             </objects>
             <point key="canvasLocation" x="971.7557251908396" y="-49.295774647887328"/>
         </scene>
-        <!--Season View Controller-->
-        <scene sceneID="ggZ-zF-iwe">
+        <!--Segment View Controller-->
+        <scene sceneID="1Js-Wk-o92">
             <objects>
-                <viewController storyboardIdentifier="SeasonViewController" id="4O9-Ft-qvu" customClass="SeasonViewController" customModule="Media_Project" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j9t-HK-EKh">
+                <viewController storyboardIdentifier="SegmentViewController" id="iBp-0j-FQI" customClass="SegmentViewController" customModule="Media_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xxc-yu-Xkl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YfU-JJ-wgi">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NS5-Sv-Bgt">
+                                <rect key="frame" x="131" y="99" width="131" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sdG-U7-UMT">
+                                <rect key="frame" x="0.0" y="170" width="393" height="648"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sgz-H2-AOW">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lbo-QM-gH6">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pWt-RC-grH">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cTa-xl-Nr4">
                                         <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LEM-Qm-32L">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ubj-Ry-aIk">
                                             <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
@@ -211,22 +218,25 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="snj-Do-DPr"/>
+                        <viewLayoutGuide key="safeArea" id="2vc-EY-F2z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YfU-JJ-wgi" firstAttribute="leading" secondItem="snj-Do-DPr" secondAttribute="leading" id="4io-86-8GG"/>
-                            <constraint firstItem="snj-Do-DPr" firstAttribute="bottom" secondItem="YfU-JJ-wgi" secondAttribute="bottom" id="gop-LZ-ehs"/>
-                            <constraint firstItem="snj-Do-DPr" firstAttribute="trailing" secondItem="YfU-JJ-wgi" secondAttribute="trailing" id="jwj-k3-hWJ"/>
-                            <constraint firstItem="YfU-JJ-wgi" firstAttribute="top" secondItem="snj-Do-DPr" secondAttribute="top" id="ySl-mj-ULr"/>
+                            <constraint firstItem="sdG-U7-UMT" firstAttribute="top" secondItem="NS5-Sv-Bgt" secondAttribute="bottom" constant="40" id="3Vn-gu-7Zo"/>
+                            <constraint firstItem="2vc-EY-F2z" firstAttribute="trailing" secondItem="NS5-Sv-Bgt" secondAttribute="trailing" constant="131" id="6Sk-c0-Vq6"/>
+                            <constraint firstItem="2vc-EY-F2z" firstAttribute="bottom" secondItem="sdG-U7-UMT" secondAttribute="bottom" id="XGb-U1-Mtz"/>
+                            <constraint firstItem="NS5-Sv-Bgt" firstAttribute="leading" secondItem="2vc-EY-F2z" secondAttribute="leading" constant="131" id="fVk-FM-SO2"/>
+                            <constraint firstItem="2vc-EY-F2z" firstAttribute="trailing" secondItem="sdG-U7-UMT" secondAttribute="trailing" id="jWJ-K8-4La"/>
+                            <constraint firstItem="NS5-Sv-Bgt" firstAttribute="top" secondItem="2vc-EY-F2z" secondAttribute="top" constant="40" id="sa9-kx-nHT"/>
+                            <constraint firstItem="sdG-U7-UMT" firstAttribute="leading" secondItem="2vc-EY-F2z" secondAttribute="leading" id="uHa-Tp-vkx"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="seasonCollectionView" destination="YfU-JJ-wgi" id="X3D-VN-Irk"/>
+                        <outlet property="segmentCollectionView" destination="sdG-U7-UMT" id="FNc-CA-mGr"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="30i-il-lsq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RKT-s4-UnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="648"/>
+            <point key="canvasLocation" x="972" y="651"/>
         </scene>
     </scenes>
     <resources>

@@ -38,7 +38,7 @@ class TrendingViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(bulletButtonClicked))
     
-    }
+    } //viewDid
     
     @objc func searchButtonClicked (_ sender: UIButton) {
     

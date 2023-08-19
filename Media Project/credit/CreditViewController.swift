@@ -90,11 +90,13 @@ class CreditViewController: UIViewController {
         movieTitle.text = selectedTrend.title
         summaryLabel.text = selectedTrend.overview
         
-        if let posterURL = URL(string: "https://image.tmdb.org/t/p/w500/" + selectedTrend.posterPath) {
+        let sharedURL = "https://image.tmdb.org/t/p/w500/"
+        
+        if let posterURL = URL(string: sharedURL + selectedTrend.posterPath) {
             moviePoster.kf.setImage(with: posterURL)
         }
         
-        if let headerURL = URL(string: "https://image.tmdb.org/t/p/w500/" + selectedTrend.backdropPath) {
+        if let headerURL = URL(string: sharedURL + selectedTrend.backdropPath) {
             headerImage.kf.setImage(with: headerURL)
         }
         
