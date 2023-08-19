@@ -286,7 +286,7 @@ extension SegmentViewController: UICollectionViewDelegate, UICollectionViewDataS
                     break
                 }
             case 1:
-                view.headerLabel.text = "최신영화 인기 TOP 10"
+                view.headerLabel.text = "최신영화 인기 TOP 9"
             default:
                 break
             }
