@@ -6,7 +6,7 @@
 //
 
 
-//영화 아이디 : 11104 (중경삼림), 783675 (더퍼스트슬램덩크), 434236 (치어댄스), 60308 (머니볼)
+//영화 아이디 : 509 (노팅힐), 372058 (너의 이름은), 16996 (17어게인)
 
 
 import UIKit
@@ -21,14 +21,16 @@ protocol CollectionViewAttributeProtocol {
 
 class SegmentViewController: UIViewController {
 
+    //관련작 그릇
     var similarList : Similar = Similar(page: 0, results: [], totalPages: 0, totalResults: 0)
-//    var similarList2 : Similar = Similar(page: 0, results: [], totalPages: 0, totalResults: 0)
-//    var similarList3 : Similar = Similar(page: 0, results: [], totalPages: 0, totalResults: 0)
+    var similarList2 : Similar = Similar(page: 0, results: [], totalPages: 0, totalResults: 0)
+    var similarList3 : Similar = Similar(page: 0, results: [], totalPages: 0, totalResults: 0)
     
+    //인기작 그릇
     var popularList : Popular = Popular(page: 0, results: [], totalPages: 0, totalResults: 0)
     
     var page = 1
-    var id = 783675
+    var id = 509
     let group = DispatchGroup()
     
     @IBOutlet var segmentCollectionView: UICollectionView!
@@ -53,29 +55,54 @@ class SegmentViewController: UIViewController {
         segmentedControl.setTitle("인기작", forSegmentAt: 1)
     }
     
-    //dispatchGroup
-    
+    //dispatchGroup 통신
     func fetchData () {
         
         let group = DispatchGroup()
         
-        //첫 번째 비동기
+        //첫 번째 비동기 (노팅힐)
         group.enter()
-        SimilarManager.shared.callRequestSimilarity(id: id, page: page) { data in
-            print(data,"1")
+        SimilarManager.shared.callRequestSimilarity(id: 509, page: page) { data in
+            print("1")
             self.similarList = data
             group.leave()
             
         } failure: {
-            print("error== 시뷰")
+            print("error== 시뷰1")
             group.leave()
         }
         
-        //두 번째 비동기
+        //두 번째 비동기 (너의 이름은)
+        group.enter()
+        SimilarManager.shared.callRequestSimilarity(id:372058 , page: page) { data in
+            print("2")
+            self.similarList2 = data
+            group.leave()
+            
+        } failure: {
+            print("error== 시뷰2")
+            group.leave()
+        }
+        
+        //세 번째 비동기 (17어게인)
+
+        group.enter()
+        SimilarManager.shared.callRequestSimilarity(id: 16996, page: page) { data in
+            print("3")
+            self.similarList3 = data
+            group.leave()
+            
+        } failure: {
+            print("error== 시뷰3")
+            group.leave()
+        }
+
+        
+        //네 번째 비동기
         group.enter()
         PopularManager.shared.callRequestUpcoming(page: page) { data in
             
-            print(data,"2")
+            print("2")
             self.popularList = data
             group.leave()
             
@@ -84,6 +111,7 @@ class SegmentViewController: UIViewController {
             group.leave()
         }
         
+        
         //작업 끝
         group.notify(queue: .main){
             print("임무완료")
@@ -91,8 +119,6 @@ class SegmentViewController: UIViewController {
         }
         
     }
-    
-    
     
     //관련작 데이터 가져오기
     func fetchDataSimilar() {
@@ -107,6 +133,7 @@ class SegmentViewController: UIViewController {
         }
     }//sim
 
+    
     //인기작 데이터 가져오기
     func fetchDataPopular() {
 
@@ -135,8 +162,6 @@ class SegmentViewController: UIViewController {
             break
         }
         
-        
-        
     }//
     
     
@@ -150,7 +175,15 @@ extension SegmentViewController: UICollectionViewDelegate, UICollectionViewDataS
    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return 3
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            return 3
+        case 1:
+            return 1
+        default:
+            break
+        }
+        return segmentedControl.selectedSegmentIndex
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -167,14 +200,38 @@ extension SegmentViewController: UICollectionViewDelegate, UICollectionViewDataS
         //관련작 보여줘
         case 0:
             if indexPath.row < similarList.results.count{
-                let similarCell = similarList.results[indexPath.row]
                 
-                if let similarPosterPath = similarCell.posterPath,
-                   let url = URL(string: sharedUrl + similarPosterPath){
-                    cell.segmentImage.kf.setImage(with: url)
-                } else {
-                    cell.segmentImage.backgroundColor = .brown
+                let similarCell = similarList.results[indexPath.row]
+                let similarCell2 = similarList2.results[indexPath.row]
+                let similarCell3 = similarList3.results[indexPath.row]
+                
+                //포스터 보이기
+                switch indexPath.section {
+                case 0:
+                    if let similarPosterPath1 = similarCell.posterPath,
+                       let url = URL(string: sharedUrl + similarPosterPath1){
+                        cell.segmentImage.kf.setImage(with: url)
+                    } else {
+                        cell.segmentImage.backgroundColor = .lightGray
+                    }
+                case 1:
+                    if let similarPosterPath2 = similarCell2.posterPath,
+                       let url2 = URL(string: sharedUrl + similarPosterPath2){
+                        cell.segmentImage.kf.setImage(with: url2)
+                    } else {
+                        cell.segmentImage.backgroundColor = .lightGray
+                    }
+                case 2:
+                    if let similarPosterPath3 = similarCell3.posterPath,
+                       let url3 = URL(string: sharedUrl + similarPosterPath3){
+                        cell.segmentImage.kf.setImage(with: url3)
+                    } else {
+                        cell.segmentImage.backgroundColor = .lightGray
+                    }
+                default:
+                    break
                 }
+
             } else {
                 print("관련작 나옴?")
             }
@@ -182,14 +239,16 @@ extension SegmentViewController: UICollectionViewDelegate, UICollectionViewDataS
         //인기작 보여줘
         case 1:
             if indexPath.row < popularList.results.count{
-                let popularCell = popularList.results[indexPath.row]
                 
+                //포스터 보이기
+                
+                let popularCell = popularList.results[indexPath.row]
                 let popularPosterPath = popularCell.posterPath
                 
                 if let url  = URL(string: sharedUrl + popularPosterPath) {
                     cell.segmentImage.kf.setImage(with: url)
                 } else {
-                    cell.segmentImage.backgroundColor = .lightGray
+                    cell.segmentImage.backgroundColor = .white
                 }
             } else {
                     print("인기작 나옴?")
@@ -205,30 +264,50 @@ extension SegmentViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     //header_title 설정
     
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//        if kind == UICollectionView.elementKindSectionHeader {
-//
-//            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as? HeaderCollectionReusableView else { return UICollectionReusableView()}
-//
-//            view.headerLabel.text = "Recommandations For You"
-//            view.headerLabel.font = .boldSystemFont(ofSize: 17)
-//
-//            return view
-//
-//        } else {
-//
-//            return UICollectionReusableView()
-//
-//        }
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        if kind == UICollectionView.elementKindSectionHeader {
+
+            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderCollectionReusableView.identifier, for: indexPath) as? HeaderCollectionReusableView else { return UICollectionReusableView()}
+
+            view.headerLabel.font = .boldSystemFont(ofSize: 19)
+            
+            //헤더 내용 설정
+            switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                switch indexPath.section {
+                case 0:
+                    view.headerLabel.text = "노팅힐과 비슷한 영화"
+                case 1:
+                    view.headerLabel.text = "너의 이름은과 비슷한 영화"
+                case 2:
+                    view.headerLabel.text = "17어게인과 비슷한 영화"
+                default:
+                    break
+                }
+            case 1:
+                view.headerLabel.text = "최신영화 인기 TOP 10"
+            default:
+                break
+            }
+            
+            return view
+
+        } else {
+
+            return UICollectionReusableView()
+
+        }
+
+    }
     
     
     
 } //extension collectionView
 
 
+
+//뷰컨트롤러 UI 설정
 
 extension SegmentViewController: CollectionViewAttributeProtocol {
     
@@ -239,7 +318,7 @@ extension SegmentViewController: CollectionViewAttributeProtocol {
         
         segmentCollectionView.register(UINib(nibName: SegmentCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SegmentCollectionViewCell.identifier)
         
-//        segmentCollectionView.register(UINib(nibName: HeaderCollectionReusableView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
+        segmentCollectionView.register(UINib(nibName: HeaderCollectionReusableView.identifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.identifier)
     }
     
     func configureCollectionViewLayout() {
@@ -250,7 +329,7 @@ extension SegmentViewController: CollectionViewAttributeProtocol {
         layout.minimumInteritemSpacing = 10
         layout.scrollDirection = .vertical
         
-        layout.headerReferenceSize = CGSize(width: 300, height: 60)
+        layout.headerReferenceSize = CGSize(width: 300, height: 64)
         segmentCollectionView.collectionViewLayout = layout
         
         
