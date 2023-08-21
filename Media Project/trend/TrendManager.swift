@@ -31,7 +31,7 @@ class TrendManager {
                 success(value)
             case .failure(let error):
                 failure()
-                print("오류: \(error)")
+                print("오류: \(error) 트렌드")
                 
             }
         }

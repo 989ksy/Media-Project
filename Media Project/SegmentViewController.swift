@@ -167,7 +167,6 @@ class SegmentViewController: UIViewController {
     
     
 
-
 }//class
 
 
@@ -199,43 +198,30 @@ extension SegmentViewController: UICollectionViewDelegate, UICollectionViewDataS
             
         //관련작 보여줘
         case 0:
-            if indexPath.row < similarList.results.count{
-                
-                let similarCell = similarList.results[indexPath.row]
-                let similarCell2 = similarList2.results[indexPath.row]
-                let similarCell3 = similarList3.results[indexPath.row]
-                
-                //포스터 보이기
-                switch indexPath.section {
-                case 0:
-                    if let similarPosterPath1 = similarCell.posterPath,
-                       let url = URL(string: sharedUrl + similarPosterPath1){
-                        cell.segmentImage.kf.setImage(with: url)
-                    } else {
-                        cell.segmentImage.backgroundColor = .lightGray
-                    }
-                case 1:
-                    if let similarPosterPath2 = similarCell2.posterPath,
-                       let url2 = URL(string: sharedUrl + similarPosterPath2){
-                        cell.segmentImage.kf.setImage(with: url2)
-                    } else {
-                        cell.segmentImage.backgroundColor = .lightGray
-                    }
-                case 2:
-                    if let similarPosterPath3 = similarCell3.posterPath,
-                       let url3 = URL(string: sharedUrl + similarPosterPath3){
-                        cell.segmentImage.kf.setImage(with: url3)
-                    } else {
-                        cell.segmentImage.backgroundColor = .lightGray
-                    }
-                default:
-                    break
+            if indexPath.section == 0 {
+                if indexPath.row < similarList.results.count {
+                    let url = "https://image.tmdb.org/t/p/w500/\(similarList.results[indexPath.item].posterPath ?? "")"
+                    cell.segmentImage.kf.setImage(with: URL(string: url))
+                } else {
+                    cell.segmentImage.backgroundColor = .lightGray
                 }
-
-            } else {
-                print("관련작 나옴?")
+            } else if indexPath.section == 1 {
+                if indexPath.row < similarList2.results.count {
+                    let url = "https://image.tmdb.org/t/p/w500/\(similarList2.results[indexPath.item].posterPath ?? "")"
+                    cell.segmentImage.kf.setImage(with: URL(string: url))
+                } else {
+                    cell.segmentImage.backgroundColor = .lightGray
+                }
+            } else if indexPath.section == 2 {
+                if indexPath.row < similarList3.results.count {
+                    let url = "https://image.tmdb.org/t/p/w500/\(similarList3.results[indexPath.item].posterPath ?? "")"
+                    cell.segmentImage.kf.setImage(with: URL(string: url))
+                } else {
+                    cell.segmentImage.backgroundColor = .lightGray
+                    print("관련작 오류?")
+                }
             }
-            
+
         //인기작 보여줘
         case 1:
             if indexPath.row < popularList.results.count{
@@ -245,7 +231,7 @@ extension SegmentViewController: UICollectionViewDelegate, UICollectionViewDataS
                 let popularCell = popularList.results[indexPath.row]
                 let popularPosterPath = popularCell.posterPath
                 
-                if let url  = URL(string: sharedUrl + popularPosterPath) {
+                if let url  = URL(string: sharedUrl + popularPosterPath!) {
                     cell.segmentImage.kf.setImage(with: url)
                 } else {
                     cell.segmentImage.backgroundColor = .white

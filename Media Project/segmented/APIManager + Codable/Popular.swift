@@ -26,11 +26,11 @@ struct PopularResult: Codable {
     let backdropPath: String?
     let genreIDS: [Int]
     let id: Int
-    let originalLanguage: originalLanguage
+    let originalLanguage: String //String으로 바꿔서 해결할 수 있음.
     let originalTitle, overview: String
     let popularity: Double
     let releaseDate, title: String
-    let posterPath: String
+    let posterPath: String?
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
@@ -50,10 +50,11 @@ struct PopularResult: Codable {
         case voteCount = "vote_count"
     }
 }
-
-enum originalLanguage: String, Codable {
-    case en = "en"
-    case fr = "fr"
-    case ja = "ja"
-    case pl = "pl"
-}
+//
+//enum originalLanguage: String, Codable {
+//    case en = "en"
+//    case fr = "fr"
+//    case ja = "ja"
+//    case pl = "pl"
+//
+//}

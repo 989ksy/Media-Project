@@ -60,8 +60,8 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igz-Ri-YeU">
-                                <rect key="frame" x="20" y="210" width="278" height="20.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igz-Ri-YeU">
+                                <rect key="frame" x="20.000000000000004" y="210" width="41.333333333333343" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -98,6 +98,12 @@
                                     <constraint firstAttribute="height" constant="30" id="Tn9-X3-vRf"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ub-fu-WTz">
+                                <rect key="frame" x="71.333333333333314" y="210" width="226.66666666666669" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -107,18 +113,21 @@
                             <constraint firstItem="iW0-fB-vop" firstAttribute="leading" secondItem="0jj-lc-tOK" secondAttribute="leading" constant="20" id="FtV-Ed-Ai3"/>
                             <constraint firstItem="KYl-lT-38f" firstAttribute="top" secondItem="iW0-fB-vop" secondAttribute="bottom" constant="20" id="Ha6-7e-lsG"/>
                             <constraint firstItem="S3g-1b-Dz3" firstAttribute="top" secondItem="0jj-lc-tOK" secondAttribute="top" constant="18" id="LBQ-m3-tgV"/>
+                            <constraint firstAttribute="trailing" secondItem="2ub-fu-WTz" secondAttribute="trailing" constant="20" id="NBP-HQ-6Yg"/>
                             <constraint firstItem="IQm-tf-rfp" firstAttribute="leading" secondItem="0jj-lc-tOK" secondAttribute="leading" constant="20" id="SZQ-OY-sea"/>
                             <constraint firstAttribute="trailing" secondItem="15Z-gF-JYR" secondAttribute="trailing" constant="20" id="TlK-fk-Oj5"/>
                             <constraint firstItem="Igz-Ri-YeU" firstAttribute="top" secondItem="15Z-gF-JYR" secondAttribute="bottom" constant="20" id="XBK-mS-T6k"/>
                             <constraint firstItem="o60-kg-kL9" firstAttribute="leading" secondItem="0jj-lc-tOK" secondAttribute="leading" constant="20" id="XQ2-IQ-hbc"/>
+                            <constraint firstItem="2ub-fu-WTz" firstAttribute="leading" secondItem="Igz-Ri-YeU" secondAttribute="trailing" constant="10" id="axS-OY-uB0"/>
                             <constraint firstAttribute="trailing" secondItem="S3g-1b-Dz3" secondAttribute="trailing" constant="18" id="eiN-AC-V9e"/>
                             <constraint firstAttribute="trailing" secondItem="IQm-tf-rfp" secondAttribute="trailing" constant="20" id="ha3-st-zbf"/>
                             <constraint firstItem="o60-kg-kL9" firstAttribute="top" secondItem="0jj-lc-tOK" secondAttribute="top" constant="170" id="ivf-HQ-ffX"/>
                             <constraint firstItem="iW0-fB-vop" firstAttribute="top" secondItem="Igz-Ri-YeU" secondAttribute="bottom" constant="10" id="kD5-T3-1fq"/>
                             <constraint firstItem="Igz-Ri-YeU" firstAttribute="leading" secondItem="0jj-lc-tOK" secondAttribute="leading" constant="20" id="lq2-m4-vMp"/>
+                            <constraint firstItem="2ub-fu-WTz" firstAttribute="top" secondItem="15Z-gF-JYR" secondAttribute="bottom" constant="20" id="pfO-zT-5r3"/>
                             <constraint firstItem="15Z-gF-JYR" firstAttribute="leading" secondItem="0jj-lc-tOK" secondAttribute="leading" constant="20" id="skP-lU-GEb"/>
                             <constraint firstItem="IQm-tf-rfp" firstAttribute="top" secondItem="KYl-lT-38f" secondAttribute="bottom" constant="20" id="twT-ZF-Nz9"/>
-                            <constraint firstAttribute="trailing" secondItem="Igz-Ri-YeU" secondAttribute="trailing" constant="20" id="xCz-CM-7cc"/>
+                            <constraint firstItem="iW0-fB-vop" firstAttribute="top" secondItem="2ub-fu-WTz" secondAttribute="bottom" constant="10" id="wGg-z3-Zr3"/>
                             <constraint firstAttribute="trailing" secondItem="KYl-lT-38f" secondAttribute="trailing" constant="20" id="yIL-0I-zqU"/>
                         </constraints>
                     </view>
@@ -145,6 +154,7 @@
                 <outlet property="imageBackview" destination="0jj-lc-tOK" id="TW5-j9-wOB"/>
                 <outlet property="moreButton" destination="bRf-0h-woS" id="NWt-YA-Yvq"/>
                 <outlet property="moreLabel" destination="mOo-XN-tfy" id="Jvh-b3-uvM"/>
+                <outlet property="originalTitleLabel" destination="2ub-fu-WTz" id="XGZ-g6-qqm"/>
                 <outlet property="posterImage" destination="15Z-gF-JYR" id="Zew-GY-QSB"/>
                 <outlet property="rateNameLabel" destination="yUS-Kz-AVW" id="81Q-Ua-Mhd"/>
                 <outlet property="rateNumberLabel" destination="0o1-63-ML8" id="MFL-2h-sLa"/>

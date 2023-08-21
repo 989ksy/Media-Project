@@ -83,6 +83,7 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         let trend = trendList.results[indexPath.row]
         
         cell.titleLabel.text = trendList.results[indexPath.row].title
+        cell.originalTitleLabel.text = trendList.results[indexPath.row].originalTitle
         cell.dateLabel.text = trendList.results[indexPath.row].releaseDate
         cell.rateNumberLabel.text = "\(trendList.results[indexPath.row].voteAverage)"
         

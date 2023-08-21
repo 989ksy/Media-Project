@@ -22,6 +22,7 @@ class TrendingTableViewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var castingLabel: UILabel!
+    @IBOutlet var originalTitleLabel: UILabel!
     
     @IBOutlet var seperatorLineView: UIView!
     

@@ -33,7 +33,7 @@ struct Result: Codable {
     let popularity: Double
     let adult: Bool
     let id: Int
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String //OriginalLanguage
     let releaseDate, overview: String
 
     enum CodingKeys: String, CodingKey {
@@ -57,8 +57,3 @@ enum MediaType: String, Codable {
     case movie = "movie"
 }
 
-enum OriginalLanguage: String, Codable {
-    case en = "en"
-    case hi = "hi"
-    case fr = "fr"
-}
