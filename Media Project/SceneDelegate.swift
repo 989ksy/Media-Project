@@ -17,6 +17,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let trendingViewController = storyboard.instantiateViewController(withIdentifier: "TrendingViewController") as! TrendingViewController
+        let segmentViewController = storyboard.instantiateViewController(withIdentifier: "SegmentViewController") as! SegmentViewController
+        let locationViewController = storyboard.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        
+        let firstViewController = UINavigationController(rootViewController: trendingViewController)
+        let secondViewController = UINavigationController(rootViewController: segmentViewController)
+        let thirdViewController = UINavigationController(rootViewController: locationViewController)
+
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers([secondViewController, firstViewController, thirdViewController], animated: true)
+
+        if let items = tabBarController.tabBar.items {
+
+            items[0].selectedImage = UIImage(systemName: "star.fill")
+            items[0].image = UIImage(systemName: "star")
+            items[0].title = "Explore"
+            items[0].tag = 1
+            
+            items[1].selectedImage = UIImage(systemName: "house.fill")
+            items[1].image = UIImage(systemName: "house")
+            items[1].title = "Home"
+            items[1].tag = 0
+            
+            items[2].selectedImage = UIImage(systemName: "location.fill")
+            items[2].image = UIImage(systemName: "location")
+            items[2].title = "Location"
+            items[2].tag = 2
+        }
+        tabBarController.selectedIndex = 1
+
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

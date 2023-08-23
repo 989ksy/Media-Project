@@ -24,7 +24,7 @@ class TrendingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = ""
+        title = "MEDIA"
         
         callRequestMovie ()
 

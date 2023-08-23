@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F042B022A8E2AA90002871B /* TrendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F042B012A8E2AA90002871B /* TrendManager.swift */; };
+		0F3EE49F2A95DA200033487C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EE49E2A95DA200033487C /* LocationViewController.swift */; };
+		0F3EE4A22A95DFCF0033487C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F3EE4A12A95DFCF0033487C /* SnapKit */; };
 		0F4C019A2A8C9BA400363321 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C01992A8C9BA400363321 /* Endpoint.swift */; };
 		0F4C019C2A8C9BC300363321 /* URL + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C019B2A8C9BC300363321 /* URL + Extension.swift */; };
 		0F56A9742A8F570E0043FC40 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56A9732A8F570E0043FC40 /* Cast.swift */; };
@@ -43,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0F042B012A8E2AA90002871B /* TrendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendManager.swift; sourceTree = "<group>"; };
+		0F3EE49E2A95DA200033487C /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		0F4C01992A8C9BA400363321 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		0F4C019B2A8C9BC300363321 /* URL + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Extension.swift"; sourceTree = "<group>"; };
 		0F56A9732A8F570E0043FC40 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F81F5FA2A87AF9700D7CC49 /* Kingfisher in Frameworks */,
+				0F3EE4A22A95DFCF0033487C /* SnapKit in Frameworks */,
 				0F81F5E72A87762B00D7CC49 /* SwiftyJSON in Frameworks */,
 				0F81F5E42A87761D00D7CC49 /* Alamofire in Frameworks */,
 			);
@@ -89,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F3EE49D2A95D6490033487C /* location */ = {
+			isa = PBXGroup;
+			children = (
+				0F3EE49E2A95DA200033487C /* LocationViewController.swift */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
 		0F4C019D2A8C9DAC00363321 /* manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +154,7 @@
 		0F81F5C82A869C3600D7CC49 /* Media Project */ = {
 			isa = PBXGroup;
 			children = (
+				0F3EE49D2A95D6490033487C /* location */,
 				0F56A9772A8FB1500043FC40 /* segmented */,
 				0F4C019D2A8C9DAC00363321 /* manager */,
 				0F81F5F02A8798EF00D7CC49 /* credit */,
@@ -210,6 +223,7 @@
 				0F81F5E32A87761D00D7CC49 /* Alamofire */,
 				0F81F5E62A87762B00D7CC49 /* SwiftyJSON */,
 				0F81F5F92A87AF9700D7CC49 /* Kingfisher */,
+				0F3EE4A12A95DFCF0033487C /* SnapKit */,
 			);
 			productName = "Media Project";
 			productReference = 0F81F5C62A869C3600D7CC49 /* Media Project.app */;
@@ -243,6 +257,7 @@
 				0F81F5E22A87761D00D7CC49 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0F81F5E52A87762B00D7CC49 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				0F81F5F82A87AF9700D7CC49 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0F3EE4A02A95DFCF0033487C /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 0F81F5C72A869C3600D7CC49 /* Products */;
 			projectDirPath = "";
@@ -281,6 +296,7 @@
 				0F81F5CA2A869C3600D7CC49 /* AppDelegate.swift in Sources */,
 				0F4C019C2A8C9BC300363321 /* URL + Extension.swift in Sources */,
 				0F56A9802A8FB3B40043FC40 /* SegmentCollectionViewCell.swift in Sources */,
+				0F3EE49F2A95DA200033487C /* LocationViewController.swift in Sources */,
 				0F56A9762A8F58660043FC40 /* CreditManager.swift in Sources */,
 				0FC64D462A8E80A30087AF60 /* Trend.swift in Sources */,
 				0F042B022A8E2AA90002871B /* TrendManager.swift in Sources */,
@@ -514,6 +530,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0F3EE4A02A95DFCF0033487C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		0F81F5E22A87761D00D7CC49 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -541,6 +565,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F3EE4A12A95DFCF0033487C /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F3EE4A02A95DFCF0033487C /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		0F81F5E32A87761D00D7CC49 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0F81F5E22A87761D00D7CC49 /* XCRemoteSwiftPackageReference "Alamofire" */;
