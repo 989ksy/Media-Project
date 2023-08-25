@@ -261,7 +261,6 @@ extension LocationViewController: CLLocationManagerDelegate{
     //사용자 위치 O
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("!!!!", locations)
-    
         
         if let coordinate = locations.last?.coordinate{ // 현재위치를 보여주는 코드!
             print(coordinate)
@@ -283,10 +282,6 @@ extension LocationViewController: CLLocationManagerDelegate{
         checkDeviceLocationAuthorization()
     }
     
-//    //사용자 권한 변경 (14이하)
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//
-//    }
     
 }
 

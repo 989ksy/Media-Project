@@ -12,6 +12,7 @@
 		0F3EE4A22A95DFCF0033487C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0F3EE4A12A95DFCF0033487C /* SnapKit */; };
 		0F4C019A2A8C9BA400363321 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C01992A8C9BA400363321 /* Endpoint.swift */; };
 		0F4C019C2A8C9BC300363321 /* URL + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4C019B2A8C9BC300363321 /* URL + Extension.swift */; };
+		0F4ED4482A98AB6300484680 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4ED4472A98AB6300484680 /* IntroViewController.swift */; };
 		0F56A9742A8F570E0043FC40 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56A9732A8F570E0043FC40 /* Cast.swift */; };
 		0F56A9762A8F58660043FC40 /* CreditManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56A9752A8F58660043FC40 /* CreditManager.swift */; };
 		0F56A9792A8FB1900043FC40 /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56A9782A8FB1900043FC40 /* SegmentViewController.swift */; };
@@ -48,6 +49,7 @@
 		0F3EE49E2A95DA200033487C /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		0F4C01992A8C9BA400363321 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		0F4C019B2A8C9BC300363321 /* URL + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + Extension.swift"; sourceTree = "<group>"; };
+		0F4ED4472A98AB6300484680 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		0F56A9732A8F570E0043FC40 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
 		0F56A9752A8F58660043FC40 /* CreditManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditManager.swift; sourceTree = "<group>"; };
 		0F56A9782A8FB1900043FC40 /* SegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SegmentViewController.swift; path = "Media Project/SegmentViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -111,6 +113,14 @@
 			path = manager;
 			sourceTree = "<group>";
 		};
+		0F4ED4462A98A69F00484680 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				0F4ED4472A98AB6300484680 /* IntroViewController.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
 		0F56A9772A8FB1500043FC40 /* segmented */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		0F81F5C82A869C3600D7CC49 /* Media Project */ = {
 			isa = PBXGroup;
 			children = (
+				0F4ED4462A98A69F00484680 /* Intro */,
 				0F3EE49D2A95D6490033487C /* location */,
 				0F56A9772A8FB1500043FC40 /* segmented */,
 				0F4C019D2A8C9DAC00363321 /* manager */,
@@ -291,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4ED4482A98AB6300484680 /* IntroViewController.swift in Sources */,
 				0F56A9742A8F570E0043FC40 /* Cast.swift in Sources */,
 				0F81F5EA2A87853C00D7CC49 /* TrendingTableViewCell.swift in Sources */,
 				0F81F5CA2A869C3600D7CC49 /* AppDelegate.swift in Sources */,
