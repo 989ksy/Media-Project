@@ -164,6 +164,21 @@
             </objects>
             <point key="canvasLocation" x="1845" y="-49"/>
         </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="Wxd-fU-RU9">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="sdl-Nc-NCX" customClass="OnboardingViewController" customModule="Media_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JQj-FX-Ofz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="T5F-01-V5S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fR9-lM-JXq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2702" y="-49"/>
+        </scene>
         <!--Segment View Controller-->
         <scene sceneID="1Js-Wk-o92">
             <objects>
@@ -237,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIQ-VA-l5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1898" y="651"/>
+            <point key="canvasLocation" x="1844" y="651"/>
         </scene>
     </scenes>
     <resources>

@@ -20,12 +20,13 @@ class TrendingViewController: UIViewController {
     ]
     
     @IBOutlet var trendingTableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "MEDIA"
-        
+                
         callRequestMovie ()
 
         trendingTableView.dataSource = self

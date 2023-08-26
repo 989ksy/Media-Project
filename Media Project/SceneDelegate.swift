@@ -16,48 +16,65 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
-        
+
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let mainViewController = TrendingViewController()
-        let navigationController = UINavigationController(rootViewController: mainViewController)
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //최초 앱 실행 여부
         
-        let trendingViewController = storyboard.instantiateViewController(withIdentifier: "TrendingViewController") as! TrendingViewController
-        let segmentViewController = storyboard.instantiateViewController(withIdentifier: "SegmentViewController") as! SegmentViewController
-        let locationViewController = storyboard.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+        let isLaunched = UserDefaults.standard.bool(forKey: "isLaunched")
+        print(isLaunched)
         
-        let firstViewController = UINavigationController(rootViewController: trendingViewController)
-        let secondViewController = UINavigationController(rootViewController: segmentViewController)
-        let thirdViewController = UINavigationController(rootViewController: locationViewController)
 
-        let tabBarController = UITabBarController()
-        tabBarController.setViewControllers([secondViewController, firstViewController, thirdViewController], animated: true)
-
-        if let items = tabBarController.tabBar.items {
-
-            items[0].selectedImage = UIImage(systemName: "star.fill")
-            items[0].image = UIImage(systemName: "star")
-            items[0].title = "Explore"
-            items[0].tag = 1
+        if !isLaunched {
+            UserDefaults.standard.set(true, forKey: "isLaunched")
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
+            window?.rootViewController = vc
+        } else {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "TrendingViewController") as! TrendingViewController
+            let nav = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nav
             
-            items[1].selectedImage = UIImage(systemName: "house.fill")
-            items[1].image = UIImage(systemName: "house")
-            items[1].title = "Home"
-            items[1].tag = 0
+            //탭바
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            let trendingViewController = storyboard.instantiateViewController(withIdentifier: "TrendingViewController") as! TrendingViewController
+            let segmentViewController = storyboard.instantiateViewController(withIdentifier: "SegmentViewController") as! SegmentViewController
+            let locationViewController = storyboard.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+
+            let firstViewController = UINavigationController(rootViewController: trendingViewController)
+            let secondViewController = UINavigationController(rootViewController: segmentViewController)
+            let thirdViewController = UINavigationController(rootViewController: locationViewController)
+
+            let tabBarController = UITabBarController()
+            tabBarController.setViewControllers([secondViewController, firstViewController, thirdViewController], animated: true)
+
+            if let items = tabBarController.tabBar.items {
+
+                items[0].selectedImage = UIImage(systemName: "star.fill")
+                items[0].image = UIImage(systemName: "star")
+                items[0].title = "Explore"
+                items[0].tag = 1
+
+                items[1].selectedImage = UIImage(systemName: "house.fill")
+                items[1].image = UIImage(systemName: "house")
+                items[1].title = "Home"
+                items[1].tag = 0
+
+                items[2].selectedImage = UIImage(systemName: "location.fill")
+                items[2].image = UIImage(systemName: "location")
+                items[2].title = "Location"
+                items[2].tag = 2
+            }
+            tabBarController.selectedIndex = 1
+
+            window?.rootViewController = tabBarController
+            window?.makeKeyAndVisible()
             
-            items[2].selectedImage = UIImage(systemName: "location.fill")
-            items[2].image = UIImage(systemName: "location")
-            items[2].title = "Location"
-            items[2].tag = 2
         }
-        tabBarController.selectedIndex = 1
-
-        window?.rootViewController = tabBarController
+        
         window?.makeKeyAndVisible()
         
     }
@@ -93,3 +110,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+
+//탭바 설정
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        window = UIWindow(windowScene: windowScene)
+//        let mainViewController = TrendingViewController()
+//        let navigationController = UINavigationController(rootViewController: mainViewController)
+//        window?.rootViewController = navigationController
+//        window?.makeKeyAndVisible()
+
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//        let trendingViewController = storyboard.instantiateViewController(withIdentifier: "TrendingViewController") as! TrendingViewController
+//        let segmentViewController = storyboard.instantiateViewController(withIdentifier: "SegmentViewController") as! SegmentViewController
+//        let locationViewController = storyboard.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
+//
+//        let firstViewController = UINavigationController(rootViewController: trendingViewController)
+//        let secondViewController = UINavigationController(rootViewController: segmentViewController)
+//        let thirdViewController = UINavigationController(rootViewController: locationViewController)
+//
+//        let tabBarController = UITabBarController()
+//        tabBarController.setViewControllers([secondViewController, firstViewController, thirdViewController], animated: true)
+//
+//        if let items = tabBarController.tabBar.items {
+//
+//            items[0].selectedImage = UIImage(systemName: "star.fill")
+//            items[0].image = UIImage(systemName: "star")
+//            items[0].title = "Explore"
+//            items[0].tag = 1
+//
+//            items[1].selectedImage = UIImage(systemName: "house.fill")
+//            items[1].image = UIImage(systemName: "house")
+//            items[1].title = "Home"
+//            items[1].tag = 0
+//
+//            items[2].selectedImage = UIImage(systemName: "location.fill")
+//            items[2].image = UIImage(systemName: "location")
+//            items[2].title = "Location"
+//            items[2].tag = 2
+//        }
+//        tabBarController.selectedIndex = 1
+//
+//        window?.rootViewController = tabBarController
+//        window?.makeKeyAndVisible()
