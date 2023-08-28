@@ -9,75 +9,181 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import SnapKit
 
-class CreditViewController: UIViewController {
+class CreditViewController: BaseViewController {
     
     var creditList : Cast = Cast(id: 0, cast: [], crew: [])
-    
     var selectedTrend : Result?
 
-    @IBOutlet var headerBack: UIView!
-    @IBOutlet var headerImage: UIImageView!
+    let headerBack = {
+        let view = UIView()
+        return view
+    }()
+    let headerImage = {
+        let view = UIImageView()
+        return view
+    }()
+
+    let movieTitle = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 20)
+        label.textColor = .white
+        return label
+    }()
+    let moviePoster = {
+        let view = UIImageView()
+        view.layer.cornerRadius = 10
+        return view
+    }()
     
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var moviePoster: UIImageView!
+    let overviewLabel = {
+       let label = UILabel()
+        label.text = "Overview"
+        label.font = .boldSystemFont(ofSize: 15)
+        label.textColor = .systemGray2
+        return label
+    }()
     
-    @IBOutlet var overviewLabel: UILabel!
-    @IBOutlet var summaryLabel: UILabel!
+    let summaryLabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 13)
+        label.numberOfLines = 0
+        label.textColor = .black
+        return label
+    }()
     
-    @IBOutlet var seperatorLine1: UIView! //구분선
-    @IBOutlet var seperatorLine2: UIView!
+    let castingLabel = {
+        let label = UILabel()
+        label.text = "Cast"
+        label.font = .boldSystemFont(ofSize: 15)
+        label.textColor = .systemGray2
+        return label
+    }()
     
-    @IBOutlet var castingLabel: UILabel!
+    let seperatorLine1 = {
+        let view = UIView()
+        view.backgroundColor = .systemGray2
+        return view
+    }()
     
-    @IBOutlet var castingTableView: UITableView! //테이블뷰
+    let seperatorLine2 = {
+        let view = UIView()
+        view.backgroundColor = .systemGray2
+        return view
+    }()
     
+    let mainView = CreditView()
+    
+    override func loadView() {
+        self.view = mainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "출연/제작"
         
-        let nib = UINib(nibName: CreditTableViewCell.identifier, bundle: nil)
-        castingTableView.register(nib, forCellReuseIdentifier: CreditTableViewCell.identifier)
+        configureLayout()
+        setLayout ()
         
-        castingTableView.dataSource = self
-        castingTableView.delegate = self
-        
-        configureCell()
         getData()
-        
         
     }
     
-    func configureCell () {
+    
+    override func configureView() {
+        super.configureView()
+        mainView.castTableView.dataSource = self
+        mainView.castTableView.delegate = self
+    }
+    
+    override func setConstraints() {
+        super.setConstraints()
+    }
+    
+    
+    
+    func configureLayout () {
+        view.addSubview(headerBack)
+        headerBack.backgroundColor = .brown
+        headerBack.addSubview(headerImage)
+        headerImage.backgroundColor = .blue
+        headerBack.addSubview(movieTitle)
+        headerBack.addSubview(moviePoster)
+        moviePoster.backgroundColor = .yellow
         
-        //라벨
+        view.addSubview(overviewLabel)
+        view.addSubview(seperatorLine1)
+        view.addSubview(summaryLabel)
+        view.addSubview(seperatorLine2)
+        view.addSubview(castingLabel)
         
-        overviewLabel.text = "OverView"
-        castingLabel.text = "Cast"
+    }
+    
+    func setLayout () {
         
-        movieTitle.font = .boldSystemFont(ofSize: 20)
-        overviewLabel.font = .boldSystemFont(ofSize: 15)
-        summaryLabel.font = .systemFont(ofSize: 13)
-        castingLabel.font = .boldSystemFont(ofSize: 15)
+        //상단 사진
         
-        movieTitle.textColor = .white
-        overviewLabel.textColor = .systemGray2
-        summaryLabel.textColor = .black
-        castingLabel.textColor = .systemGray2
+        headerBack.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(view).multipliedBy(0.3)
+        }
         
-        summaryLabel.numberOfLines = 0
+        headerImage.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
-        //구분선
+        movieTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(28)
+            make.height.equalTo(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
         
-        seperatorLine1.backgroundColor = .systemGray2
-        seperatorLine2.backgroundColor = .systemGray2
+        moviePoster.snp.makeConstraints { make in
+            make.top.equalTo(movieTitle.snp.bottom).offset(13)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-230)
+            make.bottom.equalToSuperview().offset(-13)
+            make.height.equalTo(moviePoster.snp.width).multipliedBy(1.5)
+        }
         
-        //이미지
+        overviewLabel.snp.makeConstraints { make in
+            make.top.equalTo(headerBack.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(20)
+        }
         
-        moviePoster.layer.cornerRadius = 10
+        seperatorLine1.snp.makeConstraints { make in
+            make.top.equalTo(overviewLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(1)
+        }
         
+        summaryLabel.snp.makeConstraints { make in
+            make.top.equalTo(seperatorLine1.snp.bottom).offset(15)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(120)
+        }
+        
+        seperatorLine2.snp.makeConstraints { make in
+            make.top.equalTo(summaryLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(1)
+        }
+        
+        castingLabel.snp.makeConstraints { make in
+            make.top.equalTo(seperatorLine2.snp.bottom).offset(20)
+            make.horizontalEdges.equalTo(20)
+            make.height.equalTo(20)
+        }
+    
         
     }
     
@@ -109,7 +215,7 @@ class CreditViewController: UIViewController {
         CreditManager.shared.callRequest(id: id) { data in
             print(data)
             self.creditList = data
-            self.castingTableView.reloadData()
+            self.mainView.castTableView.reloadData()
             
         } failure: {
             print("error")
@@ -125,7 +231,7 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CreditTableViewCell.identifier) as? CreditTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier:"CreditTableViewCell") as? CreditTableViewCell else { return UITableViewCell() }
         
         let credit = creditList.cast[indexPath.row]//castList[indexPath.row]
         cell.actorNameLabel.text = credit.name
@@ -133,7 +239,6 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
         if let profileURL = URL(string: "https://image.tmdb.org/t/p/w500/" + (credit.profilePath ?? "")) {
             cell.posterImage.kf.setImage(with: profileURL)
         }
-
         
         return cell
     }

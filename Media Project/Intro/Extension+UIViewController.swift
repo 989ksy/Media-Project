@@ -14,6 +14,7 @@ extension UIViewController {
         case presentFullNavigation
         case push
         case overCurrentContext
+        case currentContext
     }
     
     func transition<T: UIViewController>(viewController: T.Type, storyboard: String, style: TransitoinStyle) {
@@ -35,6 +36,10 @@ extension UIViewController {
         case .overCurrentContext:
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .overCurrentContext
+            present(nav, animated: true)
+        case .currentContext:
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .currentContext
             present(nav, animated: true)
         }
         

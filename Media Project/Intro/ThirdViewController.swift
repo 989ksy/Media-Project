@@ -35,7 +35,7 @@ class ThirdViewController: UIPageViewController {
     @objc func startButtonClicked(){
         print("시작~")
         
-        transition(viewController: TrendingViewController.self, storyboard: "Main", style: .presentFullNavigation)
+        transition(viewController: TrendingViewController.self, storyboard: "Main", style: .currentContext)
         
     }
     
