@@ -28,8 +28,18 @@ class LinkViewController: BaseViewController {
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        if let text = mainView.textField.text {
+            let userInfo : [AnyHashable : Any] = ["textFieldText": text]
+            NotificationCenter.default.post(name: NSNotification.Name("Link"), object: nil, userInfo: userInfo)
+        }
+    }
+    
     @objc func doneButtonClicked() {
         print(#function)
+        navigationController?.popViewController(animated: true)
+
     }
     
     

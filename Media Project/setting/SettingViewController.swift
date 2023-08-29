@@ -7,6 +7,14 @@
 
 import UIKit
 
+protocol PassNameDelegate {
+    func receiveName(text: String)
+}
+
+protocol PassUserDelegate{
+    func receiveUsername(text: String)
+}
+
 class SettingViewController: BaseViewController {
     
     let mainView = SettingView()
@@ -29,29 +37,70 @@ class SettingViewController: BaseViewController {
     }
     
     override func setConstraints() {
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(linkNotificationObserver), name: NSNotification.Name("Link"), object: nil)
+    }
+    
+    @objc func linkNotificationObserver(notification: NSNotification) {
+        
+        if let link = notification.userInfo?["textFieldText"] as? String {
+            mainView.linkTextField.text = link
+        }
         
     }
     
     
     @objc func nameTextFieldTouched() {
         let vc = NameViewController()
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func userTextFieldTouched() {
         let vc = UserViewController()
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func pronounsTextFieldTouched() {
         let vc = PronounsViewController()
+        
+        vc.completionHandler = { c in
+            self.mainView.pronounsTextField.text! = c
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     @objc func introTextFieldTouched() {
         let vc = IntroViewController()
+        
+        vc.completionHandler2 = { c in
+            self.mainView.introTextField.text = c
+        }
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     @objc func linkTextFieldTouched() {
         let vc = LinkViewController()
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 
+}
+
+
+extension SettingViewController: PassNameDelegate {
+    
+    func receiveName(text: String) {
+        mainView.nameTextField.text = text
+    }
+    
+}
+
+extension SettingViewController: PassUserDelegate {
+    
+    func receiveUsername(text: String) {
+        mainView.userTextField.text = text
+    }
+    
 }

@@ -78,7 +78,7 @@ class SettingView: BaseView {
     let nameTextField = {
        let view = UITextField()
         view.placeholder = "이름"
-        view.font = .boldSystemFont(ofSize: 15)
+        view.font = .systemFont(ofSize: 15)
         view.backgroundColor = .systemGray6
         view.textColor = .black
         return view
@@ -87,7 +87,7 @@ class SettingView: BaseView {
     let userTextField = {
         let view = UITextField()
          view.placeholder = "사용자 이름"
-         view.font = .boldSystemFont(ofSize: 15)
+         view.font = .systemFont(ofSize: 15)
          view.backgroundColor = .systemGray6
          view.textColor = .black
          return view
@@ -96,7 +96,7 @@ class SettingView: BaseView {
     let pronounsTextField = {
         let view = UITextField()
          view.placeholder = "성별 대명사"
-         view.font = .boldSystemFont(ofSize: 15)
+         view.font = .systemFont(ofSize: 15)
          view.backgroundColor = .systemGray6
          view.textColor = .black
          return view
@@ -105,7 +105,7 @@ class SettingView: BaseView {
     let introTextField = {
         let view = UITextField()
          view.placeholder = "소개"
-         view.font = .boldSystemFont(ofSize: 15)
+         view.font = .systemFont(ofSize: 15)
          view.backgroundColor = .systemGray6
          view.textColor = .black
          return view
@@ -114,7 +114,7 @@ class SettingView: BaseView {
     let linkTextField = {
         let view = UITextField()
          view.placeholder = "링크"
-         view.font = .boldSystemFont(ofSize: 15)
+         view.font = .systemFont(ofSize: 15)
          view.backgroundColor = .systemGray6
          view.textColor = .black
          return view
@@ -177,7 +177,7 @@ class SettingView: BaseView {
         
         nameTextField.snp.makeConstraints { make in
             make.top.equalTo(seperateLine).offset(10)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(20)
             make.leading.equalTo(nameLabel.snp.trailing)
             make.height.equalTo(30)
             make.width.equalTo(120)
@@ -192,7 +192,7 @@ class SettingView: BaseView {
         
         userTextField.snp.makeConstraints { make in
             make.top.equalTo(nameTextField.snp.bottom).offset(12)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(20)
             make.leading.equalTo(userLabel.snp.trailing)
             make.height.equalTo(30)
             make.width.equalTo(120)
@@ -207,7 +207,7 @@ class SettingView: BaseView {
         
         pronounsTextField.snp.makeConstraints { make in
             make.top.equalTo(userTextField.snp.bottom).offset(12)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(20)
             make.leading.equalTo(userLabel.snp.trailing)
             make.height.equalTo(30)
             make.width.equalTo(120)
@@ -222,7 +222,7 @@ class SettingView: BaseView {
         
         introTextField.snp.makeConstraints { make in
             make.top.equalTo(pronounsTextField.snp.bottom).offset(12)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(20)
             make.leading.equalTo(pronounsLabel.snp.trailing)
             make.height.equalTo(30)
             make.width.equalTo(120)
@@ -237,7 +237,7 @@ class SettingView: BaseView {
         
         linkTextField.snp.makeConstraints { make in
             make.top.equalTo(introTextField.snp.bottom).offset(12)
-            make.trailing.equalToSuperview().inset(10)
+            make.trailing.equalToSuperview().inset(20)
             make.leading.equalTo(introLabel.snp.trailing)
             make.height.equalTo(30)
             make.width.equalTo(120)

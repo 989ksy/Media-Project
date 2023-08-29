@@ -11,6 +11,8 @@ class PronounsViewController: BaseViewController {
     
     let mainView = PronounsView()
     
+    var completionHandler : ((String) -> Void)?
+    
     override func loadView() {
         self.view = mainView
     }
@@ -28,8 +30,16 @@ class PronounsViewController: BaseViewController {
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        completionHandler?(mainView.textField.text!)
+        
+    }
+    
     @objc func doneButtonClicked() {
         print(#function)
+        navigationController?.popViewController(animated: true)
     }
     
     

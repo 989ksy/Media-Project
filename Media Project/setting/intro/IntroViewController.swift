@@ -11,6 +11,8 @@ class IntroViewController: BaseViewController {
     
     let mainView = IntroView()
     
+    var completionHandler2: ((String) -> Void)?
+    
     override func loadView() {
         self.view = mainView
     }
@@ -28,8 +30,17 @@ class IntroViewController: BaseViewController {
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        completionHandler2?(mainView.textField.text!) //이게 c값
+        
+    }
+    
+    
     @objc func doneButtonClicked() {
         print(#function)
+        navigationController?.popViewController(animated: true)
+
     }
     
     

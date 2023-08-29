@@ -15,6 +15,7 @@ class UserViewController: BaseViewController {
         self.view = mainView
     }
     
+    var delegate: PassUserDelegate?
     
     override func configureView() {
         super.configureView()
@@ -24,12 +25,19 @@ class UserViewController: BaseViewController {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        delegate?.receiveUsername(text: mainView.textField.text!)
+    }
+    
+    
     override func setConstraints() {
 
     }
     
     @objc func doneButtonClicked() {
         print(#function)
+        navigationController?.popViewController(animated: true)
+
     }
     
     
