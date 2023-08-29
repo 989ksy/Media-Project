@@ -11,7 +11,7 @@ class CreditView: BaseView {
     
     lazy var castTableView = {
         let view = UITableView()
-        view.rowHeight = 170
+        view.rowHeight = 130
         view.register(CreditTableViewCell.self, forCellReuseIdentifier: "CreditTableViewCell")
         return view
     }()
@@ -24,7 +24,7 @@ class CreditView: BaseView {
         castTableView.snp.makeConstraints { make in
             make.trailing.leading.equalToSuperview().inset(20)
             make.bottom.equalTo(self.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(170)
+            make.height.equalTo(130)
         }
     }
     

@@ -9,7 +9,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
-import SnapKit
 
 
 class TrendingViewController: BaseViewController {
@@ -35,8 +34,8 @@ class TrendingViewController: BaseViewController {
         callRequestMovie ()
                 
         //네비게이션바 설정
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchButtonClicked))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(bulletButtonClicked))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchButtonClicked))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonClicked))
     
     } //viewDid
     
@@ -52,13 +51,13 @@ class TrendingViewController: BaseViewController {
     
     //네비게이션바 아이템
     @objc func searchButtonClicked (_ sender: UIButton) {
-    
         print("일단 존재")
-        
     }
-    @objc func bulletButtonClicked (_ Sender: UIButton) {
+    @objc func settingButtonClicked (_ Sender: UIButton) {
+        print(#function)
         
-        print("임시 존재")
+        let vc = SettingViewController()
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -97,7 +96,7 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dateLabel.text = trendList.results[indexPath.row].releaseDate
         cell.rateNumberLabel.text = "\(trendList.results[indexPath.row].voteAverage)"
         
-        cell.castingLabel.text = ""
+        cell.castingLabel.text = "castingNames"
         
         let headUrl = "https://image.tmdb.org/t/p/w500/"
         if let url = URL(string: headUrl + trendList.results[indexPath.row].posterPath){

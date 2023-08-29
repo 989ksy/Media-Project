@@ -47,6 +47,18 @@
 		0F81F5F72A879A7200D7CC49 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F5F62A879A7200D7CC49 /* APIKey.swift */; };
 		0F81F5FA2A87AF9700D7CC49 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0F81F5F92A87AF9700D7CC49 /* Kingfisher */; };
 		0F81F6012A87C9F500D7CC49 /* CreditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F5FF2A87C9F500D7CC49 /* CreditTableViewCell.swift */; };
+		0FBEEB2E2A9DE06500DD0D42 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB2D2A9DE06500DD0D42 /* SettingViewController.swift */; };
+		0FBEEB302A9DE21500DD0D42 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB2F2A9DE21500DD0D42 /* SettingView.swift */; };
+		0FBEEB332A9E170900DD0D42 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB322A9E170900DD0D42 /* NameViewController.swift */; };
+		0FBEEB352A9E23D000DD0D42 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB342A9E23D000DD0D42 /* NameView.swift */; };
+		0FBEEB372A9E296000DD0D42 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB362A9E296000DD0D42 /* UserViewController.swift */; };
+		0FBEEB3A2A9E29AA00DD0D42 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB392A9E29AA00DD0D42 /* UserView.swift */; };
+		0FBEEB3F2A9E2A5F00DD0D42 /* pronounsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB3E2A9E2A5F00DD0D42 /* pronounsViewController.swift */; };
+		0FBEEB412A9E2A7900DD0D42 /* PronounsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB402A9E2A7900DD0D42 /* PronounsView.swift */; };
+		0FBEEB432A9E2AF400DD0D42 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB422A9E2AF400DD0D42 /* IntroViewController.swift */; };
+		0FBEEB452A9E2B0200DD0D42 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB442A9E2B0200DD0D42 /* IntroView.swift */; };
+		0FBEEB472A9E2B1000DD0D42 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB462A9E2B1000DD0D42 /* LinkViewController.swift */; };
+		0FBEEB492A9E2B1A00DD0D42 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEEB482A9E2B1A00DD0D42 /* LinkView.swift */; };
 		0FC64D462A8E80A30087AF60 /* Trend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC64D452A8E80A30087AF60 /* Trend.swift */; };
 		0FC64D482A8E81BA0087AF60 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC64D472A8E81BA0087AF60 /* ReusableViewProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +102,18 @@
 		0F81F5F32A879A5200D7CC49 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = "Media Project/Key/.gitignore"; sourceTree = SOURCE_ROOT; };
 		0F81F5F62A879A7200D7CC49 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		0F81F5FF2A87C9F500D7CC49 /* CreditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditTableViewCell.swift; sourceTree = "<group>"; };
+		0FBEEB2D2A9DE06500DD0D42 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		0FBEEB2F2A9DE21500DD0D42 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		0FBEEB322A9E170900DD0D42 /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		0FBEEB342A9E23D000DD0D42 /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
+		0FBEEB362A9E296000DD0D42 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		0FBEEB392A9E29AA00DD0D42 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		0FBEEB3E2A9E2A5F00DD0D42 /* pronounsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pronounsViewController.swift; sourceTree = "<group>"; };
+		0FBEEB402A9E2A7900DD0D42 /* PronounsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronounsView.swift; sourceTree = "<group>"; };
+		0FBEEB422A9E2AF400DD0D42 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		0FBEEB442A9E2B0200DD0D42 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		0FBEEB462A9E2B1000DD0D42 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
+		0FBEEB482A9E2B1A00DD0D42 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		0FC64D452A8E80A30087AF60 /* Trend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trend.swift; sourceTree = "<group>"; };
 		0FC64D472A8E81BA0087AF60 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +216,7 @@
 		0F81F5C82A869C3600D7CC49 /* Media Project */ = {
 			isa = PBXGroup;
 			children = (
+				0FBEEB2C2A9DE03A00DD0D42 /* setting */,
 				0F4FB6A72A9C77BE004188C5 /* Base */,
 				0F4ED4462A98A69F00484680 /* Intro */,
 				0F3EE49D2A95D6490033487C /* location */,
@@ -241,6 +266,65 @@
 				0F81F5F62A879A7200D7CC49 /* APIKey.swift */,
 			);
 			path = Key;
+			sourceTree = "<group>";
+		};
+		0FBEEB2C2A9DE03A00DD0D42 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				0FBEEB3D2A9E2A3300DD0D42 /* link */,
+				0FBEEB3C2A9E2A1F00DD0D42 /* intro */,
+				0FBEEB3B2A9E2A1300DD0D42 /* pronouns */,
+				0FBEEB382A9E298F00DD0D42 /* user */,
+				0FBEEB312A9E16FA00DD0D42 /* name */,
+				0FBEEB2D2A9DE06500DD0D42 /* SettingViewController.swift */,
+				0FBEEB2F2A9DE21500DD0D42 /* SettingView.swift */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
+		0FBEEB312A9E16FA00DD0D42 /* name */ = {
+			isa = PBXGroup;
+			children = (
+				0FBEEB322A9E170900DD0D42 /* NameViewController.swift */,
+				0FBEEB342A9E23D000DD0D42 /* NameView.swift */,
+			);
+			path = name;
+			sourceTree = "<group>";
+		};
+		0FBEEB382A9E298F00DD0D42 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				0FBEEB362A9E296000DD0D42 /* UserViewController.swift */,
+				0FBEEB392A9E29AA00DD0D42 /* UserView.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		0FBEEB3B2A9E2A1300DD0D42 /* pronouns */ = {
+			isa = PBXGroup;
+			children = (
+				0FBEEB3E2A9E2A5F00DD0D42 /* pronounsViewController.swift */,
+				0FBEEB402A9E2A7900DD0D42 /* PronounsView.swift */,
+			);
+			path = pronouns;
+			sourceTree = "<group>";
+		};
+		0FBEEB3C2A9E2A1F00DD0D42 /* intro */ = {
+			isa = PBXGroup;
+			children = (
+				0FBEEB422A9E2AF400DD0D42 /* IntroViewController.swift */,
+				0FBEEB442A9E2B0200DD0D42 /* IntroView.swift */,
+			);
+			path = intro;
+			sourceTree = "<group>";
+		};
+		0FBEEB3D2A9E2A3300DD0D42 /* link */ = {
+			isa = PBXGroup;
+			children = (
+				0FBEEB462A9E2B1000DD0D42 /* LinkViewController.swift */,
+				0FBEEB482A9E2B1A00DD0D42 /* LinkView.swift */,
+			);
+			path = link;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,15 +413,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F4FB6AB2A9C7D44004188C5 /* BaseView.swift in Sources */,
+				0FBEEB412A9E2A7900DD0D42 /* PronounsView.swift in Sources */,
 				0F56A9742A8F570E0043FC40 /* Cast.swift in Sources */,
 				0F81F5EA2A87853C00D7CC49 /* TrendingTableViewCell.swift in Sources */,
 				0F81F5CA2A869C3600D7CC49 /* AppDelegate.swift in Sources */,
 				0F4B15C62A99D2AE00CAD3A6 /* SecondViewController.swift in Sources */,
+				0FBEEB2E2A9DE06500DD0D42 /* SettingViewController.swift in Sources */,
+				0FBEEB352A9E23D000DD0D42 /* NameView.swift in Sources */,
 				0F4B15C42A99D2A500CAD3A6 /* FirstViewController.swift in Sources */,
+				0FBEEB432A9E2AF400DD0D42 /* IntroViewController.swift in Sources */,
 				0F4FB6A92A9C7811004188C5 /* BaseViewController.swift in Sources */,
 				0F4C019C2A8C9BC300363321 /* URL + Extension.swift in Sources */,
+				0FBEEB3F2A9E2A5F00DD0D42 /* pronounsViewController.swift in Sources */,
+				0FBEEB3A2A9E29AA00DD0D42 /* UserView.swift in Sources */,
 				0F4B15C22A99D29700CAD3A6 /* OnboardingViewController.swift in Sources */,
 				0F56A9802A8FB3B40043FC40 /* SegmentCollectionViewCell.swift in Sources */,
+				0FBEEB452A9E2B0200DD0D42 /* IntroView.swift in Sources */,
 				0F3EE49F2A95DA200033487C /* LocationViewController.swift in Sources */,
 				0F56A9762A8F58660043FC40 /* CreditManager.swift in Sources */,
 				0FC64D462A8E80A30087AF60 /* Trend.swift in Sources */,
@@ -346,21 +437,26 @@
 				0FC64D482A8E81BA0087AF60 /* ReusableViewProtocol.swift in Sources */,
 				0F4B15CA2A99EFE000CAD3A6 /* Extension+UIViewController.swift in Sources */,
 				0F56A9902A90B5010043FC40 /* Popular.swift in Sources */,
+				0FBEEB332A9E170900DD0D42 /* NameViewController.swift in Sources */,
 				0F56A9792A8FB1900043FC40 /* SegmentViewController.swift in Sources */,
 				0F4FB6B62A9CC0A7004188C5 /* TrendTableViewCell.swift in Sources */,
 				0F56A9922A90B5200043FC40 /* PopularManager.swift in Sources */,
 				0F4FB6B42A9C80FD004188C5 /* BaseTableViewCell.swift in Sources */,
 				0F4FB6BA2A9CDD66004188C5 /* CreditView.swift in Sources */,
 				0F56A9842A8FB4590043FC40 /* HeaderCollectionReusableView.swift in Sources */,
+				0FBEEB472A9E2B1000DD0D42 /* LinkViewController.swift in Sources */,
 				0F4C019A2A8C9BA400363321 /* Endpoint.swift in Sources */,
+				0FBEEB492A9E2B1A00DD0D42 /* LinkView.swift in Sources */,
 				0F4FB6AD2A9C7DF5004188C5 /* TrendView.swift in Sources */,
 				0F81F5F22A87990F00D7CC49 /* CreditViewController.swift in Sources */,
 				0F56A9872A90A1990043FC40 /* SimilarManager.swift in Sources */,
 				0F81F5CC2A869C3600D7CC49 /* SceneDelegate.swift in Sources */,
 				0F81F5F72A879A7200D7CC49 /* APIKey.swift in Sources */,
+				0FBEEB302A9DE21500DD0D42 /* SettingView.swift in Sources */,
 				0F56A98A2A90A2C10043FC40 /* Similar.swift in Sources */,
 				0F81F6012A87C9F500D7CC49 /* CreditTableViewCell.swift in Sources */,
 				0F81F5ED2A87891400D7CC49 /* TrendingViewController.swift in Sources */,
+				0FBEEB372A9E296000DD0D42 /* UserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,6 +28,8 @@ class ThirdViewController: UIPageViewController {
         
         view.backgroundColor = .white
         setupLayout()
+        
+
 
     }
     
@@ -35,7 +37,12 @@ class ThirdViewController: UIPageViewController {
     @objc func startButtonClicked(){
         print("시작~")
         
-        transition(viewController: TrendingViewController.self, storyboard: "Main", style: .currentContext)
+        let vc = TrendingViewController()
+        
+//        present(vc, animated: true)
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
         
     }
     

@@ -9,7 +9,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
-import SnapKit
 
 class CreditViewController: BaseViewController {
     
@@ -239,6 +238,8 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
         if let profileURL = URL(string: "https://image.tmdb.org/t/p/w500/" + (credit.profilePath ?? "")) {
             cell.posterImage.kf.setImage(with: profileURL)
         }
+        
+//        NotificationCenter.default.post(name: NSNotication.Name("CastName"), object: nil, userInfo: [:])
         
         return cell
     }

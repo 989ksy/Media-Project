@@ -10,7 +10,7 @@ import UIKit
 class TrendingTableViewCell: BaseTableViewCell {
     
     let seperatorLineView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .black
         return view
     }()
@@ -101,8 +101,14 @@ class TrendingTableViewCell: BaseTableViewCell {
         return view
     }()
     
+    let posterBackView = {
+        let view = UIView()
+        return view
+    }()
+    
     let posterImage = {
         let view = UIImageView()
+        view.contentMode = .scaleAspectFit
         view.layer.shadowColor = UIColor.black.cgColor
         return view
     }()
@@ -127,8 +133,9 @@ class TrendingTableViewCell: BaseTableViewCell {
         
         contentView.addSubview(imageBackview)
         imageBackview.backgroundColor = .white
-        imageBackview.addSubview(posterImage)
-        posterImage.backgroundColor = .brown
+        imageBackview.addSubview(posterBackView)
+//        posterBackView.backgroundColor = .yellow
+        posterBackView.addSubview(posterImage)
         imageBackview.addSubview(clipButton)
         imageBackview.addSubview(titleLabel)
         imageBackview.addSubview(rateNameLabel)
@@ -163,14 +170,22 @@ class TrendingTableViewCell: BaseTableViewCell {
             make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview().inset(20)
         }
+        
+        posterBackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.55)
+        }
 
         posterImage.snp.makeConstraints { make in
-            make.top.equalTo(imageBackview.snp.top).inset(30)
-            make.bottom.equalTo(titleLabel.snp.top).offset(-30)
-            make.centerX.equalTo(imageBackview)
-            make.height.equalTo(70)
-            make.width.equalTo(160)
-
+            
+            make.top.equalToSuperview().offset(10)
+            make.center.equalToSuperview()
+////            make.edges.equalTo(posterBackView)
+//            make.top.equalTo(posterBackView.snp.top).inset(20)
+//            make.bottom.equalTo(posterBackView.snp.bottom).offset(-20)
+//            make.centerX.equalToSuperview()
+//            make.height.equalToSuperview().multipliedBy(0.4)
         }
 
         clipButton.snp.makeConstraints { make in
@@ -193,21 +208,21 @@ class TrendingTableViewCell: BaseTableViewCell {
         }
 
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(posterImage.snp.bottom).offset(20)
+            make.top.equalTo(posterImage.snp.bottom).offset(10)
             make.leading.equalToSuperview().inset(20)
             make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(20)
         }
 
-////        originalTitleLabel.snp.makeConstraints { make in
-////            make.top.equalTo(posterImage.snp.bottom).offset(10)
-////            make.leading.equalTo(titleLabel).offset(10)
-////            make.trailing.equalToSuperview().inset(20)
-////            make.height.equalTo(20)
-////        }
-//
+//        originalTitleLabel.snp.makeConstraints { make in
+//            make.top.equalTo(posterImage.snp.bottom).offset(10)
+//            make.leading.equalTo(titleLabel).offset(10)
+//            make.trailing.equalToSuperview().inset(20)
+//            make.height.equalTo(20)
+//        }
+
         castingLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(20)
         }

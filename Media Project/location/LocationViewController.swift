@@ -29,7 +29,7 @@ struct TheaterList {
 }
 
 
-class LocationViewController: UIViewController {
+class LocationViewController: BaseViewController {
 
     var theaterList : TheaterList = TheaterList()
     
