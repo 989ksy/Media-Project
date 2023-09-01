@@ -74,9 +74,12 @@ class CreditViewController: BaseViewController {
     
     let mainView = CreditView()
     
+//    var completionHandler : ((String) -> Void)?
+    
     override func loadView() {
         self.view = mainView
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,8 +103,7 @@ class CreditViewController: BaseViewController {
     override func setConstraints() {
         super.setConstraints()
     }
-    
-    
+
     
     func configureLayout () {
         view.addSubview(headerBack)
@@ -239,12 +241,14 @@ extension CreditViewController : UITableViewDelegate, UITableViewDataSource {
             cell.posterImage.kf.setImage(with: profileURL)
         }
         
-//        NotificationCenter.default.post(name: NSNotication.Name("CastName"), object: nil, userInfo: [:])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        let selectedCredit = creditList.cast[indexPath.row]
+//        completionHandler?(selectedCredit.name)
         
         return tableView.reloadData()
     }

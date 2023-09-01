@@ -32,7 +32,7 @@ class LinkViewController: BaseViewController {
         
         if let text = mainView.textField.text {
             let userInfo : [AnyHashable : Any] = ["textFieldText": text]
-            NotificationCenter.default.post(name: NSNotification.Name("Link"), object: nil, userInfo: userInfo)
+            NotificationCenter.default.post(name: .linkText, object: nil, userInfo: userInfo)
         }
     }
     

@@ -40,7 +40,7 @@ class SettingViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(linkNotificationObserver), name: NSNotification.Name("Link"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(linkNotificationObserver), name: .linkText, object: nil)
     }
     
     @objc func linkNotificationObserver(notification: NSNotification) {
@@ -82,7 +82,6 @@ class SettingViewController: BaseViewController {
     }
     @objc func linkTextFieldTouched() {
         let vc = LinkViewController()
-        
         navigationController?.pushViewController(vc, animated: true)
     }
 

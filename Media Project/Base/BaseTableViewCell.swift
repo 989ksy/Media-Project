@@ -15,7 +15,6 @@ class BaseTableViewCell: UITableViewCell {
         func configureView() {}
         func setConstraints() {}
         
-//        backgroundColor = .green
         
     }
     

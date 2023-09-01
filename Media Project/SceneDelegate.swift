@@ -46,11 +46,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             //탭바
 
             let trendingViewController = TrendingViewController()
-            let segmentViewController = SegmentViewController()
+            let multipleTableViewController = MultipleTableViewController()
             let locationViewController = LocationViewController()
 
             let firstViewController = UINavigationController(rootViewController: trendingViewController)
-            let secondViewController = UINavigationController(rootViewController: segmentViewController)
+            let secondViewController = UINavigationController(rootViewController: multipleTableViewController)
             let thirdViewController = UINavigationController(rootViewController: locationViewController)
 
             let tabBarController = UITabBarController()

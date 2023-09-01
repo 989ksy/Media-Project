@@ -11,6 +11,7 @@ import SwiftyJSON
 import Kingfisher
 
 
+
 class TrendingViewController: BaseViewController {
 
     var trendList: Trend = Trend(totalPages: 0, totalResults: 0, results: [], page: 0)
@@ -91,12 +92,12 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let trend = trendList.results[indexPath.row]
         
-        cell.titleLabel.text = trendList.results[indexPath.row].title
-        cell.originalTitleLabel.text = trendList.results[indexPath.row].originalTitle
-        cell.dateLabel.text = trendList.results[indexPath.row].releaseDate
-        cell.rateNumberLabel.text = "\(trendList.results[indexPath.row].voteAverage)"
+        cell.titleLabel.text = trend.title
+        cell.originalTitleLabel.text = trend.originalTitle
+        cell.dateLabel.text = trend.releaseDate
+        cell.rateNumberLabel.text = "\(trend.voteAverage)"
         
-        cell.castingLabel.text = "castingNames"
+//        cell.castingLabel.text = "castingNames"
         
         let headUrl = "https://image.tmdb.org/t/p/w500/"
         if let url = URL(string: headUrl + trendList.results[indexPath.row].posterPath){
@@ -117,8 +118,6 @@ extension TrendingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         print("TrendingViewController_didSelectRowAt")
-        
-//        transition(viewController: CreditViewController.self, storyboard: "Main", style: .presentNavigation)
         
         let creditVC = CreditViewController()
         
